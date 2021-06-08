@@ -48,6 +48,9 @@ namespace PROJECT_Test
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 MessageBox.Show("เปลี่ยนรหัสผ่านเรียบร้อย", "แจ้งเตือน");
+                Form2 form = new Form2();
+                this.Hide();
+                form.Show();
             }
             else
             {

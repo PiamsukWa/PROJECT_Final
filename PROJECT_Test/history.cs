@@ -32,6 +32,27 @@ namespace PROJECT_Test
             MySqlCommand cmd;
 
             cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM history WHERE sales = '"+ Program.user +"'";
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(ds);
+
+            conn.Close();
+
+            datahistory.DataSource = ds.Tables[0].DefaultView;
+        }
+
+        private void ShowdataproductAdmin()
+        {
+            MySqlConnection conn = databaseConnection();
+
+            DataSet ds = new DataSet();
+
+            conn.Open();
+
+            MySqlCommand cmd;
+
+            cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM history";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -48,73 +69,161 @@ namespace PROJECT_Test
 
         private void history_Load(object sender, EventArgs e)
         {
-            Showdataproduct();
+            dateTimePicker1.Value = System.DateTime.Now;
+            dateTimePicker2.Value = System.DateTime.Now;
+            if (Program.status_login == "sales")
+            {
+                Showdataproduct();
+            }
+            else if (Program.user == "admin")
+            {
+                ShowdataproductAdmin();
+            }
+            
         }
 
+        int sum = 0;
+        int total = 0;
         private void btnsearch_Click(object sender, EventArgs e)
         {
-            if (searchbox.Text != "")
+            //admin
+            if(Program.status_login == "admin")
             {
-                MySqlConnection conn = databaseConnection();
-
-                DataSet ds = new DataSet();
-
-                conn.Open();
-                MySqlCommand cmd;
-
-                cmd = conn.CreateCommand();
-                cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data";
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date); //เอาค่าจาก dateTimePicker ไปเก็บที่ parameters @date1
-                da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
-                da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
-                da.Fill(ds);
-                conn.Close();
-                datahistory.DataSource = ds.Tables[0].DefaultView;
-                sum = 0; //ตัวแปรจำนวนสินค้า
-                total = 0; //ตัวแปรยอดรวมจำนวนเงิน
-                conn.Open();
-                MySqlDataReader read = cmd.ExecuteReader();
-                while (read.Read())
+                if (searchbox.Text != "")
                 {
-                    sum = sum + int.Parse(read.GetString(3));
-                    total = total + int.Parse(read.GetString(2));
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date); //เอาค่าจาก dateTimePicker ไปเก็บที่ parameters @date1
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
+                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
+                    da.Fill(ds);
+                    conn.Close();
+                    datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
                 }
-                textBoxTotal.Text = $"{sum}";
-                totalpro.Text = $"{total}";
-                conn.Close();
+                else
+                {
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date);
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
+                    da.Fill(ds);
+                    conn.Close();
+                    datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
+                }
             }
-            else
+            //sale
+            else if (Program.status_login == "sales")
             {
-                MySqlConnection conn = databaseConnection();
-
-                DataSet ds = new DataSet();
-
-                conn.Open();
-                MySqlCommand cmd;
-
-                cmd = conn.CreateCommand();
-                cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2";
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date);
-                da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
-                da.Fill(ds);
-                conn.Close();
-                datahistory.DataSource = ds.Tables[0].DefaultView;
-                sum = 0; //ตัวแปรจำนวนสินค้า
-                total = 0; //ตัวแปรยอดรวมจำนวนเงิน
-                conn.Open();
-                MySqlDataReader read = cmd.ExecuteReader();
-                while (read.Read())
+                if (searchbox.Text != "")
                 {
-                    sum = sum + int.Parse(read.GetString(3));
-                    total = total + int.Parse(read.GetString(2));
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data and sales=@user";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date); //เอาค่าจาก dateTimePicker ไปเก็บที่ parameters @date1
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
+                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
+                    da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
+                    da.Fill(ds);
+                    conn.Close();
+                    datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
                 }
-                textBoxTotal.Text = $"{sum}";
-                totalpro.Text = $"{total}";
-                conn.Close();
+                else
+                {
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and sales=@user";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.Date);
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.Date);
+                    da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
+                    da.Fill(ds);
+                    conn.Close();
+                    datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
+                }
+            }
+            {
+
             }
         }
 
@@ -142,14 +251,6 @@ namespace PROJECT_Test
             }
         }
 
-        private void btnreset_Click(object sender, EventArgs e)
-        {
-            Showdataproduct();
-            searchbox.Text = "";
-        }
-
-        int sum = 0;
-        int total = 0;
            
         // ปริ้นประวัติการขายสินค้า
         private void btnprint_Click(object sender, EventArgs e)
@@ -170,9 +271,10 @@ namespace PROJECT_Test
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 240));
             e.Graphics.DrawString("รหัสสินค้า", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(50, 255));
             e.Graphics.DrawString("รายการ", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(160, 255));
-            e.Graphics.DrawString("ราคา", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(370, 255));
-            e.Graphics.DrawString("จำนวน", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(470, 255));
-            e.Graphics.DrawString("วันที่", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(670, 255));
+            e.Graphics.DrawString("ราคา", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(300, 255));
+            e.Graphics.DrawString("จำนวน", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(400, 255));
+            e.Graphics.DrawString("วันที่", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(490, 255));
+            e.Graphics.DrawString("ผู้จำหน่าย", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(670, 255));
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 265));
             int y = 290;
             allhisstock.Clear();
@@ -181,9 +283,10 @@ namespace PROJECT_Test
             {
                 e.Graphics.DrawString(i.IDhis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(50, y));
                 e.Graphics.DrawString(i.producthis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(160, y));
-                e.Graphics.DrawString(i.pricehis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(370, y));
-                e.Graphics.DrawString(i.amounthis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(470, y));
-                e.Graphics.DrawString(i.datehis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(670, y));
+                e.Graphics.DrawString(i.pricehis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(300, y));
+                e.Graphics.DrawString(i.amounthis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(400, y));
+                e.Graphics.DrawString(i.datehis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(470, y));
+                e.Graphics.DrawString(i.saleshis, new Font("TH SarabunPSK", 14, FontStyle.Regular), Brushes.Black, new PointF(670, y));
                 y = y + 20;
             }
             e.Graphics.DrawString("จำนวนสินค้า", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(520, y+20));
@@ -219,13 +322,16 @@ namespace PROJECT_Test
                     Program.pricehis = adapter.GetString("sum");
                     Program.amounthis = adapter.GetString("amount");
                     Program.datehis = adapter.GetString("sale_date");
+                    Program.saleshis = adapter.GetString("sales");
+
                     Forprinthis item = new Forprinthis()
                     {
                         IDhis = Program.IDhis,
                         producthis = Program.producthis,
                         pricehis = Program.pricehis,
                         amounthis = Program.amounthis,
-                        datehis = Program.datehis
+                        datehis = Program.datehis,
+                        saleshis = Program.saleshis
 
                     };
                     allhisstock.Add(item);
@@ -254,13 +360,15 @@ namespace PROJECT_Test
                     Program.pricehis = adapter.GetString("sum");
                     Program.amounthis = adapter.GetString("amount");
                     Program.datehis = adapter.GetString("sale_date");
+                    Program.saleshis = adapter.GetString("sales");
                     Forprinthis item = new Forprinthis()
                     {
                         IDhis = Program.IDhis,
                         producthis = Program.producthis,
                         pricehis = Program.pricehis,
                         amounthis = Program.amounthis,
-                        datehis = Program.datehis
+                        datehis = Program.datehis,
+                        saleshis = Program.saleshis
 
                     };
                     allhisstock.Add(item);

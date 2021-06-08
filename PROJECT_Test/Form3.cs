@@ -110,7 +110,7 @@ namespace PROJECT_Test
             MySqlCommand cmd2;
             cmd = conn.CreateCommand();
             cmd2 = conn2.CreateCommand();
-            string email = Boxemail.Text;
+            string email = Boxemail.Text + "@gmail.com";
             string username = nameaccount.Text;
             cmd.CommandText = $"SELECT * FROM admin WHERE email =\"{email}\"" ;
             cmd2.CommandText = $"SELECT * FROM admin WHERE  username =\"{username}\"";
@@ -130,7 +130,7 @@ namespace PROJECT_Test
             else
             {
                 MySqlConnection condata = databaseConnection();
-                string sql = "INSERT INTO admin (username, password,email) VALUES('" + nameaccount.Text + "' , '" + Boxpassword1.Text + "','" + Boxemail.Text + "')";
+                string sql = "INSERT INTO admin (username, password, fname, lname, email,status) VALUES" + $"(\"{nameaccount.Text}\",\"{Boxpassword1.Text}\",\"{textBoxfname.Text}\",\"{textBoxlname.Text}\",\"{Boxemail.Text + "@gmail.com"}\",\"{"sales"}\")";
                 MySqlCommand dt = new MySqlCommand(sql, condata);
                 condata.Open();
                 dt.ExecuteNonQuery();
@@ -191,22 +191,127 @@ namespace PROJECT_Test
         }
         private void Boxemail_TextChanged(object sender, EventArgs e)
         {
-            if (Boxemail.Text == "")
+
+            labelcheckmail.Text = "";
+        }
+
+        private void nameaccount_TextChanged(object sender, EventArgs e) // ชื่อบัญชีผู้ใช้
+        {
+            label5.Text = "";
+
+        }
+
+        private void Boxemail_Keypress(object sender, KeyPressEventArgs e)
+        {
+
+            if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57)||(int)e.KeyChar == 8 || (int)e.KeyChar == 13 || (int)e.KeyChar == 46)
             {
-                labelcheckmail.ResetText();
+                e.Handled = false; // OS will handle this event.
+            }
+
+
+            else
+            {
+                e.Handled = true;  // OS will not handle this event.
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void nameaccount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
+            {
+                e.Handled = false; // OS will handle this event.
+            }
+
+
+            else
+            {
+                e.Handled = true;  // OS will not handle this event.
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Boxpassword1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
+            {
+                e.Handled = false; // OS will handle this event.
+            }
 
+
+            else
+            {
+                e.Handled = true;  // OS will not handle this event.
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void nameaccount_TextChanged(object sender, EventArgs e)
+        private void Boxpassword2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (nameaccount.Text == "")
+            if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
             {
-                label5.ResetText();
+                e.Handled = false; // OS will handle this event.
+            }
+
+
+            else
+            {
+                e.Handled = true;  // OS will not handle this event.
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void textBoxfname_Enter(object sender, EventArgs e)
+        {
+            if (textBoxfname.Text == "ชื่อจริง")
+            {
+                textBoxfname.Text = "";
+                textBoxfname.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxfname_Leave(object sender, EventArgs e)
+        {
+            if (textBoxfname.Text == "")
+            {
+                textBoxfname.Text = "ชื่อจริง";
+                textBoxfname.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBoxlname_Leave(object sender, EventArgs e)
+        {
+            if (textBoxlname.Text == "")
+            {
+                textBoxlname.Text = "นามสกุล";
+                textBoxlname.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBoxlname_Enter(object sender, EventArgs e)
+        {
+            if (textBoxlname.Text == "นามสกุล")
+            {
+                textBoxlname.Text = "";
+                textBoxlname.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxfname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void textBoxlname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

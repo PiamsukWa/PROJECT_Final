@@ -96,12 +96,6 @@
     <Compile Include="..\..\..\..\Desktop\ED COM\project c#\Program.cs">
       <Link>Program.cs</Link>
     </Compile>
-    <Compile Include="newUser.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="newUser.Designer.cs">
-      <DependentUpon>newUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="product.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,9 +134,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="newpassword.resx">
       <DependentUpon>newpassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="newUser.resx">
-      <DependentUpon>newUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="product.resx">
       <DependentUpon>product.cs</DependentUpon>
@@ -595,6 +586,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kissclipart-computer-printer-vector-clipart-inkjet-printing-pr-a0f7eecac7b82ec0-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\304703 %281%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

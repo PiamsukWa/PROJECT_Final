@@ -163,6 +163,16 @@ namespace PROJECT_Test.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _304703__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("304703 (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _304703__2_ {
             get {
                 object obj = ResourceManager.GetObject("304703 (2)", resourceCulture);

@@ -263,7 +263,7 @@ namespace PROJECT_Test
             }
             allstock.Clear();
 
-            //ย้าย
+            //ย้ายไปยัง history
             conn.Open();
             string sql1 = "SELECT * FROM cart";
 
@@ -281,20 +281,22 @@ namespace PROJECT_Test
                     ID= idFormcart,
                     name = nameFormcart,
                     amount = amountFormcart,
-                    sum = sumFormcart
+                    sum = sumFormcart,
                 };
                 movedata.Add(item2);
             }
-            conn.Close();
+            conn.Close(); 
             foreach (var z in movedata)
             {
                 conn.Open();
-                string sql2 = "INSERT INTO history(ID, name, amount, sum) VALUES ('"+ z.ID + "','" + z.name + "','" + z.amount + "','" + z.sum + "')";
+                string sql2 = "INSERT INTO history(ID, name, amount, sum ,sales) VALUES ('" + z.ID + "','" + z.name + "','" + z.amount + "','" + z.sum + "','" + txtpersonnel.Text+ "')";
 
                 MySqlCommand command1 = new MySqlCommand(sql2, conn);
                 command1.ExecuteReader();
                 conn.Close();
             }
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
             conn.Open();
             string sqlDelete = "DELETE FROM cart";
 
@@ -349,6 +351,7 @@ namespace PROJECT_Test
                 }
             }
             conn.Close();
+
             if (chek >= int.Parse(comboamount.Text))
             {
                 string sql = "INSERT INTO cart (ID, product, price, amount,sum) VALUES('" + id.Text + "' ,'" + product.Text + "' , '" + priceproduct.Text + "','" + comboamount.Text + "','" + (int.Parse(comboamount.Text) * int.Parse(priceproduct.Text)).ToString() + "')";
@@ -392,13 +395,6 @@ namespace PROJECT_Test
 
         }
 
-        private void btnprint_Click(object sender, EventArgs e) //ปุ่มสั่งพิมพ์
-        {
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.ShowDialog();
-
-        }
-
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Image logo = Image.FromFile(@"C:\Users\ACER\Desktop\ED COM\C#\Project example\pro\logo bbcare.png");
@@ -407,7 +403,7 @@ namespace PROJECT_Test
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 160));
             e.Graphics.DrawString("รายการจำหน่ายสินค้า", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 195));
             e.Graphics.DrawString("พิมพ์เมื่อ " + System.DateTime.Now.ToString("dd / MM / yyyy   HH : mm : ss น."), new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 215));
-            e.Graphics.DrawString("พิมพ์โดย BB Care Shop ", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(400, 215));
+            e.Graphics.DrawString("พิมพ์โดย   " + txtpersonnel.Text, new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(400, 215));
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 240));
             e.Graphics.DrawString("รหัสสินค้า", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(50, 255));
             e.Graphics.DrawString("รายการ", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(160, 255));
@@ -415,6 +411,7 @@ namespace PROJECT_Test
             e.Graphics.DrawString("จำนวน", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(670, 255));
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 265));
             int y = 290;
+            allbook.Clear();
             loaddata();
             foreach (var i in allbook)
             {
@@ -484,15 +481,31 @@ namespace PROJECT_Test
 
         private void totalmoney_Click(object sender, EventArgs e) /*คิดเงิน*/
         {
+            MySqlConnection conn = databaseConnection();
+            conn.Open();
+
+            MySqlCommand cmd;
+            cmd = conn.CreateCommand();
+            String user = txtpersonnel.Text;
+            cmd.CommandText = $"SELECT * FROM admin WHERE username=\"{user}\"";
             double givemoney = double.Parse(txtmoney.Text);
-            if (givemoney >= sum)
+            if (cmd.ExecuteReader().HasRows)
             {
-                txtchangemoney.Text = Convert.ToString(givemoney - sum);
+                if (givemoney >= sum)
+                {
+                    txtchangemoney.Text = Convert.ToString(givemoney - sum);
+                }
+                else if (givemoney < sum)
+                {
+                    MessageBox.Show("จำนวนเงินไม่พียงพอ", "ระบบ" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
-            else if (givemoney < sum)
+            else
             {
-                MessageBox.Show("จำนวนเงินไม่พียงพอ", "ระบบ");
+                MessageBox.Show("ไม่มีชื่อพนักงาน", "ระบบ" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            conn.Close();
         }
 
         private void txtmoney_KeyPress(object sender, KeyPressEventArgs e)
@@ -560,6 +573,24 @@ namespace PROJECT_Test
                 conn.Close();
 
                 dataproduct.DataSource = ds.Tables[0].DefaultView;
+            }
+        }
+
+        private void txtpersonnel_Leave(object sender, EventArgs e)
+        {
+            if (txtpersonnel.Text == "")
+            {
+                txtpersonnel.Text = "ป้อนชื่อพนักงานขาย";
+                txtpersonnel.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtpersonnel_Enter(object sender, EventArgs e)
+        {
+            if (txtpersonnel.Text == "ป้อนชื่อพนักงานขาย")
+            {
+                txtpersonnel.Text = "";
+                txtpersonnel.ForeColor = Color.Black;
             }
         }
     }

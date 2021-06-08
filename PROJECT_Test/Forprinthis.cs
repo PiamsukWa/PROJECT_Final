@@ -13,5 +13,7 @@ namespace PROJECT_Test
         public string datehis { get; set; }
         public string pricehis { get; set; }
         public string amounthis { get; set; }
+
+        public string saleshis { get; set; }
     }
 }

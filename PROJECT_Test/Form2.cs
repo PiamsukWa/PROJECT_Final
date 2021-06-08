@@ -97,30 +97,34 @@ namespace PROJECT_Test
         {
             MySqlConnection conn = databaseConnection();
             conn.Open();
-
-            MySqlCommand cmd;
-            cmd = conn.CreateCommand();
-            String user = textBoxusername.Text;
+            string user = textBoxusername.Text;
             string password = textBoxpass.Text;
-
-            cmd.CommandText = $"SELECT * FROM admin WHERE username=\"{user}\" AND password=\"{password}\"";
-            if (cmd.ExecuteReader().HasRows)
+            MySqlCommand cmd = new MySqlCommand($"SELECT * FROM admin WHERE username=\"{user}\" AND password=\"{password}\"",conn);
+            bool checkhave = false; 
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                Form4 form = new Form4();
-                form.txt = textBoxusername.Text;
-                form.Show();
-                this.Close();
-
-                textBoxusername.ResetText();
-                textBoxpass.ResetText();
-                labelcheckpass.ResetText();
-
-            }
-            else
-            {
-                labelcheckpass.Text = " บัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+                Program.status_login = reader.GetString("status").ToString();
+                checkhave = true;
             }
             conn.Close();
+            Program.user = user;
+            MessageBox.Show("เข้าสู่ระบบสำเร็จ", "แจ้งเตือน");
+            //MessageBox.Show(Program.status_login + " " + Program.user + " " + checkhave.ToString());
+            if (checkhave == true)
+            {
+                Form4 f4 = new Form4();
+                this.Hide();
+                f4.Show();
+                
+                
+            }
+            else if (checkhave == false)
+            {
+                
+                labelcheckpass.Text = " บัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง";
+            }
+            
             
         }
         private void textBoxpass_TextChanged(object sender, EventArgs e)
@@ -143,12 +147,28 @@ namespace PROJECT_Test
 
         private void forgetpass_Click(object sender, EventArgs e)
         {
-            sendindcode sc = new sendindcode();
-            this.Hide();
-            sc.Show();
+            MySqlConnection conn = databaseConnection();
+            conn.Open();
+
+            MySqlCommand cmd;
+            cmd = conn.CreateCommand();
+            String user = textBoxusername.Text;
+            cmd.CommandText = $"SELECT * FROM admin WHERE username=\"{user}\"";
+            if (cmd.ExecuteReader().HasRows)
+            {
+                sendindcode sc = new sendindcode();
+                sc.txt = textBoxusername.Text;
+                this.Hide();
+                sc.Show();
+            }
+            else
+            {
+                MessageBox.Show("ไม่มีชื่อพนักงาน", "ระบบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            conn.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //ปุ่มกากบาท
         {
             Form1 form = new Form1();
             form.Show();

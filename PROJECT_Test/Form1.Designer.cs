@@ -32,7 +32,6 @@ namespace PROJECT_Test
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonsignin = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lineBox = new System.Windows.Forms.PictureBox();
@@ -57,12 +56,11 @@ namespace PROJECT_Test
             this.buttonskin = new System.Windows.Forms.Button();
             this.buttonkind = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.content = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnsearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.searchbox = new System.Windows.Forms.TextBox();
             this.btndelete = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.Label();
             this.priceproduct = new System.Windows.Forms.Label();
@@ -73,21 +71,16 @@ namespace PROJECT_Test
             this.btninsert = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dataproduct = new System.Windows.Forms.DataGridView();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btnprint = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.totalmoney = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnsearch = new System.Windows.Forms.Button();
-            this.searchbox = new System.Windows.Forms.TextBox();
+            this.txtpersonnel = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facebookBox)).BeginInit();
@@ -96,7 +89,6 @@ namespace PROJECT_Test
             this.panelkind.SuspendLayout();
             this.content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataproduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -107,7 +99,6 @@ namespace PROJECT_Test
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonsignin);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.lineBox);
@@ -116,17 +107,6 @@ namespace PROJECT_Test
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1519, 64);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = global::PROJECT_Test.Properties.Resources.ติดต่อเรา;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
             // 
             // buttonsignin
             // 
@@ -151,7 +131,7 @@ namespace PROJECT_Test
             // 
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::PROJECT_Test.Properties.Resources._283_2831746_insta_icon_instagram;
-            this.pictureBox3.Location = new System.Drawing.Point(438, 6);
+            this.pictureBox3.Location = new System.Drawing.Point(286, 6);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(53, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,7 +143,7 @@ namespace PROJECT_Test
             // 
             this.lineBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lineBox.Image = global::PROJECT_Test.Properties.Resources.add_friend_line_png_2_1;
-            this.lineBox.Location = new System.Drawing.Point(226, 7);
+            this.lineBox.Location = new System.Drawing.Point(72, 6);
             this.lineBox.Name = "lineBox";
             this.lineBox.Size = new System.Drawing.Size(206, 50);
             this.lineBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -175,7 +155,7 @@ namespace PROJECT_Test
             // 
             this.facebookBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.facebookBox.Image = global::PROJECT_Test.Properties.Resources._1200px_Facebook_Logo__2019_;
-            this.facebookBox.Location = new System.Drawing.Point(167, 6);
+            this.facebookBox.Location = new System.Drawing.Point(13, 3);
             this.facebookBox.Name = "facebookBox";
             this.facebookBox.Size = new System.Drawing.Size(53, 50);
             this.facebookBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -206,14 +186,14 @@ namespace PROJECT_Test
             this.panellist.MaximumSize = new System.Drawing.Size(273, 740);
             this.panellist.MinimumSize = new System.Drawing.Size(273, 73);
             this.panellist.Name = "panellist";
-            this.panellist.Size = new System.Drawing.Size(273, 643);
+            this.panellist.Size = new System.Drawing.Size(273, 631);
             this.panellist.TabIndex = 7;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(208, 597);
+            this.label12.Location = new System.Drawing.Point(208, 575);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(30, 39);
             this.label12.TabIndex = 39;
@@ -222,7 +202,7 @@ namespace PROJECT_Test
             // txtchangemoney
             // 
             this.txtchangemoney.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtchangemoney.Location = new System.Drawing.Point(59, 596);
+            this.txtchangemoney.Location = new System.Drawing.Point(59, 579);
             this.txtchangemoney.Name = "txtchangemoney";
             this.txtchangemoney.ReadOnly = true;
             this.txtchangemoney.Size = new System.Drawing.Size(143, 37);
@@ -234,7 +214,7 @@ namespace PROJECT_Test
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("FC Daisy", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(95, 555);
+            this.label13.Location = new System.Drawing.Point(95, 533);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 36);
             this.label13.TabIndex = 37;
@@ -244,7 +224,7 @@ namespace PROJECT_Test
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(208, 511);
+            this.label10.Location = new System.Drawing.Point(208, 487);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 39);
             this.label10.TabIndex = 36;
@@ -253,7 +233,7 @@ namespace PROJECT_Test
             // txtmoney
             // 
             this.txtmoney.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmoney.Location = new System.Drawing.Point(59, 517);
+            this.txtmoney.Location = new System.Drawing.Point(59, 494);
             this.txtmoney.Name = "txtmoney";
             this.txtmoney.Size = new System.Drawing.Size(143, 37);
             this.txtmoney.TabIndex = 35;
@@ -267,7 +247,7 @@ namespace PROJECT_Test
             // 
             this.labelmoney.AutoSize = true;
             this.labelmoney.Font = new System.Drawing.Font("FC Daisy", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelmoney.Location = new System.Drawing.Point(86, 473);
+            this.labelmoney.Location = new System.Drawing.Point(86, 453);
             this.labelmoney.Name = "labelmoney";
             this.labelmoney.Size = new System.Drawing.Size(91, 36);
             this.labelmoney.TabIndex = 34;
@@ -277,7 +257,7 @@ namespace PROJECT_Test
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(208, 428);
+            this.label6.Location = new System.Drawing.Point(208, 409);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 39);
             this.label6.TabIndex = 33;
@@ -286,7 +266,7 @@ namespace PROJECT_Test
             // textBoxtotal
             // 
             this.textBoxtotal.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxtotal.Location = new System.Drawing.Point(59, 428);
+            this.textBoxtotal.Location = new System.Drawing.Point(59, 411);
             this.textBoxtotal.Name = "textBoxtotal";
             this.textBoxtotal.ReadOnly = true;
             this.textBoxtotal.Size = new System.Drawing.Size(143, 37);
@@ -298,7 +278,7 @@ namespace PROJECT_Test
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("FC Daisy", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(86, 387);
+            this.label7.Location = new System.Drawing.Point(86, 369);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 36);
             this.label7.TabIndex = 31;
@@ -307,12 +287,12 @@ namespace PROJECT_Test
             // datacart
             // 
             this.datacart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datacart.Location = new System.Drawing.Point(11, 85);
+            this.datacart.Location = new System.Drawing.Point(11, 73);
             this.datacart.Name = "datacart";
             this.datacart.RowHeadersWidth = 51;
             this.datacart.RowTemplate.Height = 24;
             this.datacart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datacart.Size = new System.Drawing.Size(254, 295);
+            this.datacart.Size = new System.Drawing.Size(254, 281);
             this.datacart.TabIndex = 24;
             // 
             // buttonlistshop
@@ -334,16 +314,16 @@ namespace PROJECT_Test
             // 
             // btnpay
             // 
-            this.btnpay.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnpay.BackColor = System.Drawing.Color.LightCoral;
             this.btnpay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnpay.FlatAppearance.BorderSize = 0;
             this.btnpay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
             this.btnpay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnpay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnpay.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpay.Location = new System.Drawing.Point(1372, 718);
+            this.btnpay.Location = new System.Drawing.Point(1366, 778);
             this.btnpay.Name = "btnpay";
-            this.btnpay.Size = new System.Drawing.Size(130, 54);
+            this.btnpay.Size = new System.Drawing.Size(129, 54);
             this.btnpay.TabIndex = 30;
             this.btnpay.Text = "ตกลงซื้อ";
             this.btnpay.UseVisualStyleBackColor = false;
@@ -441,47 +421,6 @@ namespace PROJECT_Test
             this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("FC Daisy", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(85, 665);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 36);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "ฝ่ายบริการลูกค้า";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("FC Home", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 702);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 32);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "084-031-65XX";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 732);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 26);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "BeeBcare.Shop@gmail.com\r\n";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("FC Home", 10.5F);
-            this.label4.Location = new System.Drawing.Point(27, 770);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 80);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "จันทร์ - อาทิตย์ 8.00AM - 6.00PM\r\n(ยกเว้นวันหยุดนักขัตฤกษ์)\r\n\r\n\r\n";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // content
             // 
             this.content.Controls.Add(this.label14);
@@ -503,15 +442,52 @@ namespace PROJECT_Test
             this.content.Size = new System.Drawing.Size(946, 545);
             this.content.TabIndex = 16;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("FC Daisy", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(8, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 45);
+            this.label14.TabIndex = 84;
+            this.label14.Text = "ชื่อสินค้า";
+            // 
+            // btnsearch
+            // 
+            this.btnsearch.BackColor = System.Drawing.Color.Plum;
+            this.btnsearch.FlatAppearance.BorderSize = 0;
+            this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsearch.Font = new System.Drawing.Font("FC Home", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsearch.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnsearch.Image = global::PROJECT_Test.Properties.Resources.pngtree_vector_find_icon_png_image_516019_removebg_preview__1_1;
+            this.btnsearch.Location = new System.Drawing.Point(514, 19);
+            this.btnsearch.Name = "btnsearch";
+            this.btnsearch.Size = new System.Drawing.Size(153, 44);
+            this.btnsearch.TabIndex = 83;
+            this.btnsearch.Text = "ค้นหา";
+            this.btnsearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnsearch.UseVisualStyleBackColor = false;
+            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(688, 197);
+            this.label11.Location = new System.Drawing.Point(687, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(112, 39);
+            this.label11.Size = new System.Drawing.Size(53, 39);
             this.label11.TabIndex = 39;
-            this.label11.Text = "รหัสสินค้า :";
+            this.label11.Text = "ID :";
+            // 
+            // searchbox
+            // 
+            this.searchbox.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchbox.Location = new System.Drawing.Point(121, 19);
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(380, 44);
+            this.searchbox.TabIndex = 82;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
             // btndelete
             // 
@@ -535,7 +511,7 @@ namespace PROJECT_Test
             this.id.AutoSize = true;
             this.id.BackColor = System.Drawing.SystemColors.Info;
             this.id.Font = new System.Drawing.Font("FC Daisy", 19.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id.Location = new System.Drawing.Point(713, 247);
+            this.id.Location = new System.Drawing.Point(766, 23);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(0, 39);
             this.id.TabIndex = 38;
@@ -545,7 +521,7 @@ namespace PROJECT_Test
             this.priceproduct.AutoSize = true;
             this.priceproduct.BackColor = System.Drawing.SystemColors.Info;
             this.priceproduct.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceproduct.Location = new System.Drawing.Point(702, 151);
+            this.priceproduct.Location = new System.Drawing.Point(766, 212);
             this.priceproduct.Name = "priceproduct";
             this.priceproduct.Size = new System.Drawing.Size(0, 39);
             this.priceproduct.TabIndex = 37;
@@ -554,7 +530,7 @@ namespace PROJECT_Test
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(692, 102);
+            this.label9.Location = new System.Drawing.Point(687, 212);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 39);
             this.label9.TabIndex = 36;
@@ -564,7 +540,7 @@ namespace PROJECT_Test
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(688, 9);
+            this.label8.Location = new System.Drawing.Point(687, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 39);
             this.label8.TabIndex = 35;
@@ -575,7 +551,7 @@ namespace PROJECT_Test
             this.product.AutoSize = true;
             this.product.BackColor = System.Drawing.SystemColors.Info;
             this.product.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product.Location = new System.Drawing.Point(702, 51);
+            this.product.Location = new System.Drawing.Point(699, 148);
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(0, 39);
             this.product.TabIndex = 34;
@@ -631,23 +607,13 @@ namespace PROJECT_Test
             // dataproduct
             // 
             this.dataproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataproduct.Location = new System.Drawing.Point(13, 82);
+            this.dataproduct.Location = new System.Drawing.Point(16, 82);
             this.dataproduct.Name = "dataproduct";
             this.dataproduct.RowHeadersWidth = 51;
             this.dataproduct.RowTemplate.Height = 24;
-            this.dataproduct.Size = new System.Drawing.Size(654, 438);
+            this.dataproduct.Size = new System.Drawing.Size(651, 445);
             this.dataproduct.TabIndex = 27;
             this.dataproduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataproduct_CellClick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PROJECT_Test.Properties.Resources._4601f773e41c094849e10288a7aec5e8__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(38, 665);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox9
             // 
@@ -700,23 +666,6 @@ namespace PROJECT_Test
             this.pictureBox8.TabIndex = 4;
             this.pictureBox8.TabStop = false;
             // 
-            // btnprint
-            // 
-            this.btnprint.BackColor = System.Drawing.Color.Plum;
-            this.btnprint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnprint.FlatAppearance.BorderSize = 0;
-            this.btnprint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btnprint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
-            this.btnprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnprint.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnprint.Location = new System.Drawing.Point(1229, 778);
-            this.btnprint.Name = "btnprint";
-            this.btnprint.Size = new System.Drawing.Size(273, 54);
-            this.btnprint.TabIndex = 31;
-            this.btnprint.Text = "พิมพ์ใบเสร็จ";
-            this.btnprint.UseVisualStyleBackColor = false;
-            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
-            // 
             // printPreviewDialog1
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -741,65 +690,36 @@ namespace PROJECT_Test
             this.totalmoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.totalmoney.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalmoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.totalmoney.Location = new System.Drawing.Point(1229, 718);
+            this.totalmoney.Location = new System.Drawing.Point(1222, 778);
             this.totalmoney.Name = "totalmoney";
-            this.totalmoney.Size = new System.Drawing.Size(137, 54);
+            this.totalmoney.Size = new System.Drawing.Size(139, 54);
             this.totalmoney.TabIndex = 32;
             this.totalmoney.Text = "คิดเงิน";
             this.totalmoney.UseVisualStyleBackColor = false;
             this.totalmoney.Click += new System.EventHandler(this.totalmoney_Click);
             // 
-            // label14
+            // txtpersonnel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("FC Daisy", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(8, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 45);
-            this.label14.TabIndex = 84;
-            this.label14.Text = "ชื่อสินค้า";
-            // 
-            // btnsearch
-            // 
-            this.btnsearch.BackColor = System.Drawing.Color.Plum;
-            this.btnsearch.FlatAppearance.BorderSize = 0;
-            this.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsearch.Font = new System.Drawing.Font("FC Home", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearch.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnsearch.Image = global::PROJECT_Test.Properties.Resources.pngtree_vector_find_icon_png_image_516019_removebg_preview__1_1;
-            this.btnsearch.Location = new System.Drawing.Point(514, 19);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(153, 44);
-            this.btnsearch.TabIndex = 83;
-            this.btnsearch.Text = "ค้นหา";
-            this.btnsearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnsearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnsearch.UseVisualStyleBackColor = false;
-            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
-            // 
-            // searchbox
-            // 
-            this.searchbox.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbox.Location = new System.Drawing.Point(121, 19);
-            this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(380, 44);
-            this.searchbox.TabIndex = 82;
-            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            this.txtpersonnel.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpersonnel.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtpersonnel.Location = new System.Drawing.Point(1229, 726);
+            this.txtpersonnel.Name = "txtpersonnel";
+            this.txtpersonnel.Size = new System.Drawing.Size(266, 37);
+            this.txtpersonnel.TabIndex = 33;
+            this.txtpersonnel.Text = "ป้อนชื่อพนักงานขาย";
+            this.txtpersonnel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtpersonnel.Enter += new System.EventHandler(this.txtpersonnel_Enter);
+            this.txtpersonnel.Leave += new System.EventHandler(this.txtpersonnel_Leave);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1507, 910);
+            this.ClientSize = new System.Drawing.Size(1507, 923);
+            this.Controls.Add(this.txtpersonnel);
             this.Controls.Add(this.totalmoney);
-            this.Controls.Add(this.btnprint);
             this.Controls.Add(this.content);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelkind);
             this.Controls.Add(this.btnpay);
             this.Controls.Add(this.panellist);
@@ -818,7 +738,6 @@ namespace PROJECT_Test
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facebookBox)).EndInit();
@@ -829,7 +748,6 @@ namespace PROJECT_Test
             this.content.ResumeLayout(false);
             this.content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataproduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -852,7 +770,6 @@ namespace PROJECT_Test
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panellist;
         private System.Windows.Forms.Panel panelkind;
         private System.Windows.Forms.Button buttonskin;
@@ -862,11 +779,6 @@ namespace PROJECT_Test
         private System.Windows.Forms.Button buttonbody;
         private System.Windows.Forms.Button buttonsignin;
         private System.Windows.Forms.Button buttonlistshop;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel content;
         private System.Windows.Forms.Button btninsert;
         private System.Windows.Forms.Label label5;
@@ -889,7 +801,6 @@ namespace PROJECT_Test
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtmoney;
         private System.Windows.Forms.Label labelmoney;
-        private System.Windows.Forms.Button btnprint;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
@@ -897,6 +808,7 @@ namespace PROJECT_Test
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnsearch;
         private System.Windows.Forms.TextBox searchbox;
+        private System.Windows.Forms.TextBox txtpersonnel;
     }
 }
 

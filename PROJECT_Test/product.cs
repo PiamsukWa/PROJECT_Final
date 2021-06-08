@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace PROJECT_Test
 {
@@ -53,11 +55,33 @@ namespace PROJECT_Test
             txtname.Text = dataproduct.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
             textamount.Text = dataproduct.Rows[e.RowIndex].Cells["amount"].FormattedValue.ToString();
             txtprice.Text = dataproduct.Rows[e.RowIndex].Cells["price"].FormattedValue.ToString();
+
         }
 
         private void product_Load(object sender, EventArgs e)
         {
             Showdataproduct();
+            if (Program.status_login == "admin")
+            {
+                txtkind.Enabled = true;
+                txtname.Enabled = true;
+                textamount.Enabled = true;
+                txtprice.Enabled = true;
+                delete.Enabled = true;
+                insert.Enabled = true;
+                update.Enabled = true;
+
+            }
+            else if (Program.status_login == "sales")
+            {
+                txtkind.Enabled = false;
+                txtname.Enabled = false;
+                textamount.Enabled = false;
+                txtprice.Enabled = false;
+                delete.Enabled = false;
+                insert.Enabled = false;
+                update.Enabled = false;
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
@@ -196,6 +220,43 @@ namespace PROJECT_Test
             txtprice.ResetText();
             searchbox.Text = "";
             comboBox1.Text = "ประเภทสินค้า";
+        }
+
+        private void txtname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void txtkind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void textamount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณากรอกเฉพาะตัวเลข", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณากรอกเฉพาะตัวเลข", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

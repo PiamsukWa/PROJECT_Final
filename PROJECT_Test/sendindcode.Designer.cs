@@ -30,17 +30,19 @@ namespace PROJECT_Test
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonclose1 = new System.Windows.Forms.Button();
-            this.forgetpass = new System.Windows.Forms.Label();
-            this.txtemail = new System.Windows.Forms.TextBox();
-            this.txtotp = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnsend = new System.Windows.Forms.Button();
+            this.labelcheck2 = new System.Windows.Forms.Label();
+            this.labelcheck1 = new System.Windows.Forms.Label();
             this.bntverify = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelcheck1 = new System.Windows.Forms.Label();
-            this.labelcheck2 = new System.Windows.Forms.Label();
+            this.btnsend = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtotp = new System.Windows.Forms.TextBox();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.forgetpass = new System.Windows.Forms.Label();
+            this.buttonclose1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,8 @@ namespace PROJECT_Test
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.labelcheck2);
             this.panel1.Controls.Add(this.labelcheck1);
             this.panel1.Controls.Add(this.bntverify);
@@ -64,93 +68,25 @@ namespace PROJECT_Test
             this.panel1.Size = new System.Drawing.Size(569, 609);
             this.panel1.TabIndex = 0;
             // 
-            // buttonclose1
+            // labelcheck2
             // 
-            this.buttonclose1.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonclose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonclose1.FlatAppearance.BorderSize = 0;
-            this.buttonclose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonclose1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonclose1.ForeColor = System.Drawing.Color.Crimson;
-            this.buttonclose1.Location = new System.Drawing.Point(523, 0);
-            this.buttonclose1.Name = "buttonclose1";
-            this.buttonclose1.Size = new System.Drawing.Size(46, 40);
-            this.buttonclose1.TabIndex = 16;
-            this.buttonclose1.Text = "X";
-            this.buttonclose1.UseVisualStyleBackColor = false;
-            this.buttonclose1.Click += new System.EventHandler(this.buttonclose1_Click);
+            this.labelcheck2.AutoSize = true;
+            this.labelcheck2.Font = new System.Drawing.Font("FC Iconic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcheck2.ForeColor = System.Drawing.Color.Crimson;
+            this.labelcheck2.Location = new System.Drawing.Point(37, 378);
+            this.labelcheck2.Name = "labelcheck2";
+            this.labelcheck2.Size = new System.Drawing.Size(0, 23);
+            this.labelcheck2.TabIndex = 26;
             // 
-            // forgetpass
+            // labelcheck1
             // 
-            this.forgetpass.AutoSize = true;
-            this.forgetpass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.forgetpass.Font = new System.Drawing.Font("FC Iconic", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgetpass.Location = new System.Drawing.Point(85, 14);
-            this.forgetpass.Name = "forgetpass";
-            this.forgetpass.Size = new System.Drawing.Size(194, 48);
-            this.forgetpass.TabIndex = 17;
-            this.forgetpass.Text = "ลืมรหัสผ่าน ";
-            // 
-            // txtemail
-            // 
-            this.txtemail.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.txtemail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtemail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtemail.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(33, 189);
-            this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(412, 37);
-            this.txtemail.TabIndex = 18;
-            this.txtemail.TextChanged += new System.EventHandler(this.txtemail_TextChanged);
-            // 
-            // txtotp
-            // 
-            this.txtotp.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.txtotp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtotp.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtotp.Location = new System.Drawing.Point(34, 324);
-            this.txtotp.Name = "txtotp";
-            this.txtotp.Size = new System.Drawing.Size(502, 37);
-            this.txtotp.TabIndex = 19;
-            this.txtotp.TextChanged += new System.EventHandler(this.txtotp_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 154);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 30);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Email";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 281);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(294, 30);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "รหัสรักษาความปลอดภัย / OTP";
-            // 
-            // btnsend
-            // 
-            this.btnsend.BackColor = System.Drawing.Color.Crimson;
-            this.btnsend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsend.FlatAppearance.BorderSize = 0;
-            this.btnsend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsend.Font = new System.Drawing.Font("FC Iconic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsend.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnsend.Location = new System.Drawing.Point(451, 188);
-            this.btnsend.Name = "btnsend";
-            this.btnsend.Size = new System.Drawing.Size(84, 38);
-            this.btnsend.TabIndex = 22;
-            this.btnsend.Text = "ส่ง";
-            this.btnsend.UseVisualStyleBackColor = false;
-            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
+            this.labelcheck1.AutoSize = true;
+            this.labelcheck1.Font = new System.Drawing.Font("FC Iconic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelcheck1.ForeColor = System.Drawing.Color.Crimson;
+            this.labelcheck1.Location = new System.Drawing.Point(35, 235);
+            this.labelcheck1.Name = "labelcheck1";
+            this.labelcheck1.Size = new System.Drawing.Size(0, 23);
+            this.labelcheck1.TabIndex = 25;
             // 
             // bntverify
             // 
@@ -178,25 +114,113 @@ namespace PROJECT_Test
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // labelcheck1
+            // btnsend
             // 
-            this.labelcheck1.AutoSize = true;
-            this.labelcheck1.Font = new System.Drawing.Font("FC Iconic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcheck1.ForeColor = System.Drawing.Color.Crimson;
-            this.labelcheck1.Location = new System.Drawing.Point(35, 235);
-            this.labelcheck1.Name = "labelcheck1";
-            this.labelcheck1.Size = new System.Drawing.Size(0, 23);
-            this.labelcheck1.TabIndex = 25;
+            this.btnsend.BackColor = System.Drawing.Color.Crimson;
+            this.btnsend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsend.FlatAppearance.BorderSize = 0;
+            this.btnsend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnsend.Font = new System.Drawing.Font("FC Iconic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsend.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnsend.Location = new System.Drawing.Point(451, 188);
+            this.btnsend.Name = "btnsend";
+            this.btnsend.Size = new System.Drawing.Size(84, 38);
+            this.btnsend.TabIndex = 22;
+            this.btnsend.Text = "ส่ง";
+            this.btnsend.UseVisualStyleBackColor = false;
+            this.btnsend.Click += new System.EventHandler(this.btnsend_Click);
             // 
-            // labelcheck2
+            // label2
             // 
-            this.labelcheck2.AutoSize = true;
-            this.labelcheck2.Font = new System.Drawing.Font("FC Iconic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelcheck2.ForeColor = System.Drawing.Color.Crimson;
-            this.labelcheck2.Location = new System.Drawing.Point(37, 378);
-            this.labelcheck2.Name = "labelcheck2";
-            this.labelcheck2.Size = new System.Drawing.Size(0, 23);
-            this.labelcheck2.TabIndex = 26;
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 281);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(294, 30);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "รหัสรักษาความปลอดภัย / OTP";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 30);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Email";
+            // 
+            // txtotp
+            // 
+            this.txtotp.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtotp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtotp.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtotp.Location = new System.Drawing.Point(34, 324);
+            this.txtotp.Name = "txtotp";
+            this.txtotp.Size = new System.Drawing.Size(502, 37);
+            this.txtotp.TabIndex = 19;
+            this.txtotp.TextChanged += new System.EventHandler(this.txtotp_TextChanged);
+            // 
+            // txtemail
+            // 
+            this.txtemail.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtemail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtemail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtemail.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail.Location = new System.Drawing.Point(33, 189);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.ReadOnly = true;
+            this.txtemail.Size = new System.Drawing.Size(412, 37);
+            this.txtemail.TabIndex = 18;
+            this.txtemail.TextChanged += new System.EventHandler(this.txtemail_TextChanged);
+            // 
+            // forgetpass
+            // 
+            this.forgetpass.AutoSize = true;
+            this.forgetpass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forgetpass.Font = new System.Drawing.Font("FC Iconic", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgetpass.Location = new System.Drawing.Point(85, 14);
+            this.forgetpass.Name = "forgetpass";
+            this.forgetpass.Size = new System.Drawing.Size(194, 48);
+            this.forgetpass.TabIndex = 17;
+            this.forgetpass.Text = "ลืมรหัสผ่าน ";
+            // 
+            // buttonclose1
+            // 
+            this.buttonclose1.BackColor = System.Drawing.SystemColors.Window;
+            this.buttonclose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonclose1.FlatAppearance.BorderSize = 0;
+            this.buttonclose1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonclose1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonclose1.ForeColor = System.Drawing.Color.Crimson;
+            this.buttonclose1.Location = new System.Drawing.Point(523, 0);
+            this.buttonclose1.Name = "buttonclose1";
+            this.buttonclose1.Size = new System.Drawing.Size(46, 40);
+            this.buttonclose1.TabIndex = 16;
+            this.buttonclose1.Text = "X";
+            this.buttonclose1.UseVisualStyleBackColor = false;
+            this.buttonclose1.Click += new System.EventHandler(this.buttonclose1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(133, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 26);
+            this.label3.TabIndex = 27;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 26);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "บัญชีผู้ใช้ :";
             // 
             // sendindcode
             // 
@@ -209,6 +233,7 @@ namespace PROJECT_Test
             this.Name = "sendindcode";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "sendindcode";
+            this.Load += new System.EventHandler(this.sendindcode_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -230,5 +255,7 @@ namespace PROJECT_Test
         private System.Windows.Forms.Button bntverify;
         private System.Windows.Forms.Label labelcheck2;
         private System.Windows.Forms.Label labelcheck1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

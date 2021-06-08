@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="vitamins-26622_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vitamins-26622_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo bbcare1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo bbcare1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="367-3670351_access-login-icon-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\367-3670351_access-login-icon-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sss.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="431863_00_whitening_its_skin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\431863_00_whitening_its_skin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +157,9 @@
   <data name="pngtree-vector-find-icon-png-image_516019-removebg-preview (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-vector-find-icon-png-image_516019-removebg-preview (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="367-3670351_access-login-icon-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\367-3670351_access-login-icon-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,9 +175,6 @@
   <data name="ff64600aecab7e81af02da34f7532e722" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ff64600aecab7e81af02da34f7532e722.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SK-II Facial Treatment Essence" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SK-II Facial Treatment Essence.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="vitamins-26622_960_720 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vitamins-26622_960_720 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,8 +187,8 @@
   <data name="DHC-Supplement Vitamin B-mix 60 Days" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DHC-Supplement Vitamin B-mix 60 Days.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="laneige-lip-sleeping-mask-3001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\laneige-lip-sleeping-mask-3001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="kissclipart-computer-printer-vector-clipart-inkjet-printing-pr-a0f7eecac7b82ec0-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kissclipart-computer-printer-vector-clipart-inkjet-printing-pr-a0f7eecac7b82ec0-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,14 +196,8 @@
   <data name="lipstick_PNG23963" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lipstick_PNG23963.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo bbcare3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo bbcare3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="user (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="uparrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\uparrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,6 +211,9 @@
   <data name="lock+password+protect+safety+security+icon-13200860451325469661" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock+password+protect+safety+security+icon-13200860451325469661.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="15530499681560_600x6001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\15530499681560_600x6001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="x-30465__340" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\x-30465__340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -222,6 +222,9 @@
   </data>
   <data name="sss1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sss1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4601f773e41c094849e10288a7aec5e8 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4601f773e41c094849e10288a7aec5e8 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,6 +247,9 @@
   <data name="Sample_User_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sample_User_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="5d9b639e148521" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5d9b639e148521.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,14 +262,14 @@
   <data name="default+home+house+main+menu+icon-1320086046804091155" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\default+home+house+main+menu+icon-1320086046804091155.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="614c9a695edaa8cb13f6081ee5776314" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\614c9a695edaa8cb13f6081ee5776314.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="a341ce00a945c31d7fa36467df18960f" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a341ce00a945c31d7fa36467df18960f.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngtree-vector-find-icon-png-image_516019-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-vector-find-icon-png-image_516019-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1490129331-rounded07_82197" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1490129331-rounded07_82197.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blackmores Calcium With Natural Vitamin D3 (60 Tablets)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blackmores Calcium With Natural Vitamin D3 (60 Tablets).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dhc-vitamin-c-60-days1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dhc-vitamin-c-60-days1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,6 +307,9 @@
   <data name="pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Vistra-Grape-Seed-286x300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Vistra-Grape-Seed-286x300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Sample_User_IconRRR1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sample_User_IconRRR1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,8 +319,8 @@
   <data name="Vistra Collagen Dipeptide 1000mg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vistra Collagen Dipeptide 1000mg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngtree-vector-find-icon-png-image_516019-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-vector-find-icon-png-image_516019-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user (1) (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user (1) (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo bbcare2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo bbcare2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,8 +343,8 @@
   <data name="line-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\line-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="367-3670351_access-login-icon-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\367-3670351_access-login-icon-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="a341ce00a945c31d7fa36467df18960f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a341ce00a945c31d7fa36467df18960f.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,11 +379,8 @@
   <data name="762a189ad461d5450b1698e86163e7cc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\762a189ad461d5450b1698e86163e7cc.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dhc-vitamin-c-60-days2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dhc-vitamin-c-60-days2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sample_User_IconRRR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sample_User_IconRRR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="laneige-lip-sleeping-mask-3001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\laneige-lip-sleeping-mask-3001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="854a6f1e322185f460d42d8d23097c18" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\854a6f1e322185f460d42d8d23097c18.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -387,9 +393,6 @@
   </data>
   <data name="Blackmores Food Lecithin 1200 MG (100 Tablets)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Blackmores Food Lecithin 1200 MG (100 Tablets).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pngtree-add-to-cart - icon-design-png-image_4268955-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-add-to-cart - icon-design-png-image_4268955-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="304703 (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\304703 (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -412,14 +415,14 @@
   <data name="pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (2)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (2)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="15530499681560_600x6001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\15530499681560_600x6001.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sample_User_IconRRR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sample_User_IconRRR.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="slide3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slide3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo bbcare3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo bbcare3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vaseline Whitening Defense SPF24PA 550ml" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vaseline Whitening Defense SPF24PA 550ml.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -430,8 +433,8 @@
   <data name="NIVEA Extra White C &amp; A Vitamin Lotion 320ml" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NIVEA Extra White C &amp; A Vitamin Lotion 320ml.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4601f773e41c094849e10288a7aec5e8 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4601f773e41c094849e10288a7aec5e8 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngtree-vector-find-icon-png-image_516019-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-vector-find-icon-png-image_516019-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ShotType1_540x540" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ShotType1_540x540.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -445,14 +448,14 @@
   <data name="8932c986-d7f9-44df-bf31-5dc3a381d29e" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8932c986-d7f9-44df-bf31-5dc3a381d29e.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="89902-1-large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\89902-1-large.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="304703 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\304703 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dhc-vitamin-c-60-days" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dhc-vitamin-c-60-days.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="16060c150be05d911ca781312b9c2e3c" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\16060c150be05d911ca781312b9c2e3c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -466,8 +469,8 @@
   <data name="slide2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slide2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vitamins-26622_960_720" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vitamins-26622_960_720.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-shopping-cart-ui-icon-image_1440224-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ติดต่อเรา" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ติดต่อเรา.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -478,11 +481,11 @@
   <data name="slide4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slide4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Blackmores Calcium With Natural Vitamin D3 (60 Tablets)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blackmores Calcium With Natural Vitamin D3 (60 Tablets).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SK-II Facial Treatment Essence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SK-II Facial Treatment Essence.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user (1) (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user (1) (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="16060c150be05d911ca781312b9c2e3c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16060c150be05d911ca781312b9c2e3c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lock-security-pad-key-512H1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock-security-pad-key-512H1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -490,8 +493,8 @@
   <data name="img2 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img2 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="89902-1-large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\89902-1-large.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="614c9a695edaa8cb13f6081ee5776314" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\614c9a695edaa8cb13f6081ee5776314.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="slide12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slide12.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -517,11 +520,11 @@
   <data name="SKINRx LAB MadeCera Cream" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SKINRx LAB MadeCera Cream.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Vistra-Grape-Seed-286x300" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vistra-Grape-Seed-286x300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pngtree-add-to-cart - icon-design-png-image_4268955-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngtree-add-to-cart - icon-design-png-image_4268955-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="367-3670351_access-login-icon-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\367-3670351_access-login-icon-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dhc-vitamin-c-60-days2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dhc-vitamin-c-60-days2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo bbcare22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo bbcare22.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -529,13 +532,13 @@
   <data name="depositphotos_354166396-stock-illustration-printer-vector-isometric-color-web (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\depositphotos_354166396-stock-illustration-printer-vector-isometric-color-web (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngtree-vector-find-icon-png-image_516019-removebg-preview1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngtree-vector-find-icon-png-image_516019-removebg-preview1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="uparrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uparrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GGG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GGG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kissclipart-computer-printer-vector-clipart-inkjet-printing-pr-a0f7eecac7b82ec0-removebg-preview (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kissclipart-computer-printer-vector-clipart-inkjet-printing-pr-a0f7eecac7b82ec0-removebg-preview (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="304703 (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\304703 (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

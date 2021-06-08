@@ -12,6 +12,15 @@ namespace PROJECT_Test
 {
     public partial class Form4 : Form
     {
+        //public string UserID
+        //{
+        //    get { return label3.Text; }
+        //}
+        //private void lable3_TextChanged(object sender, EventArgs e)
+        //{
+        //    UserControladmin.UserID = UserID;
+        //}
+
         public Form4()
         {
             InitializeComponent();
@@ -62,7 +71,7 @@ namespace PROJECT_Test
         public string txt; //รับค่ามาจากฟอร์ม log in
         private void Form4_Load(object sender, EventArgs e)
         {
-            label3.Text = txt;
+            label3.Text = Program.user;
         }
     }
 }

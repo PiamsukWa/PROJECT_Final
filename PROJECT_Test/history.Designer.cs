@@ -76,6 +76,8 @@ namespace PROJECT_Test
             // 
             // datahistory
             // 
+            this.datahistory.AllowUserToAddRows = false;
+            this.datahistory.AllowUserToDeleteRows = false;
             this.datahistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.datahistory.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.datahistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
@@ -100,6 +102,7 @@ namespace PROJECT_Test
             this.datahistory.Location = new System.Drawing.Point(579, 184);
             this.datahistory.Margin = new System.Windows.Forms.Padding(4);
             this.datahistory.Name = "datahistory";
+            this.datahistory.ReadOnly = true;
             this.datahistory.RowHeadersWidth = 35;
             this.datahistory.RowTemplate.Height = 24;
             this.datahistory.Size = new System.Drawing.Size(569, 507);
@@ -237,16 +240,20 @@ namespace PROJECT_Test
             this.totalpro.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalpro.Location = new System.Drawing.Point(204, 473);
             this.totalpro.Name = "totalpro";
+            this.totalpro.ReadOnly = true;
             this.totalpro.Size = new System.Drawing.Size(259, 44);
             this.totalpro.TabIndex = 92;
+            this.totalpro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTotal.Location = new System.Drawing.Point(204, 547);
             this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(259, 44);
             this.textBoxTotal.TabIndex = 93;
+            this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 

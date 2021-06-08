@@ -208,6 +208,7 @@ namespace PROJECT_Test
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 36);
             this.label3.TabIndex = 22;
+            //this.label3.TextChanged += new System.EventHandler(this.lable3_TextChanged);
             // 
             // pictureBox1
             // 
@@ -245,6 +246,7 @@ namespace PROJECT_Test
             this.userControladmin1.Name = "userControladmin1";
             this.userControladmin1.Size = new System.Drawing.Size(1026, 697);
             this.userControladmin1.TabIndex = 2;
+            //this.userControladmin1.UserID = null;
             // 
             // Form4
             // 

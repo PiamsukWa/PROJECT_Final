@@ -17,6 +17,14 @@ namespace PROJECT_Test
     {
         string OTPCode;
         public static string to;
+        private MySqlConnection databaseConnection()
+        {
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=bbcare_shop;";
+
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            return conn;
+        }
         public sendindcode()
         {
             InitializeComponent();
@@ -78,7 +86,7 @@ namespace PROJECT_Test
             try
             {
                 smtp.Send(message);
-                MessageBox.Show("Code send successfully");
+                MessageBox.Show("ส่ง OTP สำเร็จ กรุณาตรวจสอบข้อความ E-mail ของคุณค่ะ", "ระบบแจ้งเตือน");
             }
             catch(Exception ex)
             {
@@ -97,8 +105,24 @@ namespace PROJECT_Test
             }
             else
             {
-                MessageBox.Show("รหัสไม่ถูกต้อง");
+                MessageBox.Show("รหัสไม่ถูกต้อง", "เเจ้งเตือน");
             }
+        }
+        public string txt; //รับค่ามาจากฟอร์ม log in
+        private void sendindcode_Load(object sender, EventArgs e)
+        {
+            label3.Text = txt;
+            MySqlConnection conn = databaseConnection();
+            conn.Open();
+            string sqlcom = "SELECT * FROM admin WHERE username = '" + label3.Text + "'";
+            MySqlCommand command = new MySqlCommand(sqlcom, conn);
+            MySqlDataReader readdata = command.ExecuteReader();
+
+            if(readdata.Read())
+            {
+                txtemail.Text = readdata.GetValue(5).ToString();
+            }
+            conn.Close();
         }
     }
 }
