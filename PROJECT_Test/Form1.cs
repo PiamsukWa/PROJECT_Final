@@ -295,7 +295,7 @@ namespace PROJECT_Test
                 command1.ExecuteReader();
                 conn.Close();
             }
-            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Document = printDocument1; //ปริิ้นใบเสร็จ
             printPreviewDialog1.ShowDialog();
             conn.Open();
             string sqlDelete = "DELETE FROM cart";
@@ -313,7 +313,7 @@ namespace PROJECT_Test
 
 
         }
-        private void Showdatacart()
+        private void Showdatacart() //ตะกร้าสินค้า
         {
             MySqlConnection conn = databaseConnection();
 
@@ -369,7 +369,7 @@ namespace PROJECT_Test
             }
         }
         int sum = 0;
-        private void showprice()
+        private void showprice() //ยอดรวม
         {
             sum = 0;
             MySqlConnection conn = databaseConnection();
@@ -379,7 +379,7 @@ namespace PROJECT_Test
             MySqlDataReader read = cmd.ExecuteReader();
             while (read.Read())
             {
-                sum = sum + int.Parse(read.GetString("sum").ToString());
+                sum = sum + int.Parse(read.GetString("sum").ToString()); 
             }
             textBoxtotal.Text = sum.ToString();
             conn.Close();
@@ -486,7 +486,8 @@ namespace PROJECT_Test
 
             MySqlCommand cmd;
             cmd = conn.CreateCommand();
-            String user = txtpersonnel.Text;
+            String user = txtpersonnel.Text; 
+
             cmd.CommandText = $"SELECT * FROM admin WHERE username=\"{user}\"";
             double givemoney = double.Parse(txtmoney.Text);
             if (cmd.ExecuteReader().HasRows)

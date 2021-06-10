@@ -53,6 +53,8 @@ namespace PROJECT_Test
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnupdate = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btndelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +90,7 @@ namespace PROJECT_Test
             this.GridViewadmin.ReadOnly = true;
             this.GridViewadmin.RowHeadersWidth = 35;
             this.GridViewadmin.RowTemplate.Height = 24;
-            this.GridViewadmin.Size = new System.Drawing.Size(574, 538);
+            this.GridViewadmin.Size = new System.Drawing.Size(497, 538);
             this.GridViewadmin.TabIndex = 0;
             this.GridViewadmin.TabStop = false;
             this.GridViewadmin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewadmin_CellClick);
@@ -97,7 +99,7 @@ namespace PROJECT_Test
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(668, 222);
+            this.label1.Location = new System.Drawing.Point(579, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 32);
             this.label1.TabIndex = 1;
@@ -107,7 +109,7 @@ namespace PROJECT_Test
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(674, 453);
+            this.label2.Location = new System.Drawing.Point(587, 458);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 32);
             this.label2.TabIndex = 2;
@@ -117,7 +119,7 @@ namespace PROJECT_Test
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(732, 378);
+            this.label3.Location = new System.Drawing.Point(587, 378);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 32);
             this.label3.TabIndex = 3;
@@ -126,9 +128,9 @@ namespace PROJECT_Test
             // username
             // 
             this.username.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(797, 214);
+            this.username.Location = new System.Drawing.Point(717, 222);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(374, 40);
+            this.username.Size = new System.Drawing.Size(452, 40);
             this.username.TabIndex = 5;
             this.username.TextChanged += new System.EventHandler(this.username_TextChanged);
             this.username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.username_KeyPress);
@@ -136,18 +138,18 @@ namespace PROJECT_Test
             // fname
             // 
             this.fname.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fname.Location = new System.Drawing.Point(797, 375);
+            this.fname.Location = new System.Drawing.Point(717, 375);
             this.fname.Name = "fname";
-            this.fname.Size = new System.Drawing.Size(374, 40);
+            this.fname.Size = new System.Drawing.Size(454, 40);
             this.fname.TabIndex = 6;
             this.fname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fname_KeyPress);
             // 
             // lname
             // 
             this.lname.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lname.Location = new System.Drawing.Point(797, 450);
+            this.lname.Location = new System.Drawing.Point(717, 450);
             this.lname.Name = "lname";
-            this.lname.Size = new System.Drawing.Size(374, 40);
+            this.lname.Size = new System.Drawing.Size(454, 40);
             this.lname.TabIndex = 7;
             this.lname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lname_KeyPress);
             // 
@@ -164,7 +166,7 @@ namespace PROJECT_Test
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("FC Iconic", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(864, 137);
+            this.label5.Location = new System.Drawing.Point(812, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 42);
             this.label5.TabIndex = 12;
@@ -173,9 +175,9 @@ namespace PROJECT_Test
             // password
             // 
             this.password.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(797, 302);
+            this.password.Location = new System.Drawing.Point(717, 302);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(374, 40);
+            this.password.Size = new System.Drawing.Size(454, 40);
             this.password.TabIndex = 14;
             this.password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.password_KeyPress);
             // 
@@ -183,7 +185,7 @@ namespace PROJECT_Test
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(676, 310);
+            this.label7.Location = new System.Drawing.Point(587, 310);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 32);
             this.label7.TabIndex = 16;
@@ -196,7 +198,7 @@ namespace PROJECT_Test
             this.newaccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newaccount.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newaccount.ForeColor = System.Drawing.SystemColors.Window;
-            this.newaccount.Location = new System.Drawing.Point(139, 703);
+            this.newaccount.Location = new System.Drawing.Point(248, 703);
             this.newaccount.Name = "newaccount";
             this.newaccount.Size = new System.Drawing.Size(188, 48);
             this.newaccount.TabIndex = 25;
@@ -207,9 +209,9 @@ namespace PROJECT_Test
             // textBoxemail
             // 
             this.textBoxemail.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxemail.Location = new System.Drawing.Point(797, 525);
+            this.textBoxemail.Location = new System.Drawing.Point(717, 525);
             this.textBoxemail.Name = "textBoxemail";
-            this.textBoxemail.Size = new System.Drawing.Size(376, 40);
+            this.textBoxemail.Size = new System.Drawing.Size(312, 40);
             this.textBoxemail.TabIndex = 27;
             this.textBoxemail.TextChanged += new System.EventHandler(this.textBoxemail_TextChanged);
             this.textBoxemail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxemail_KeyPress);
@@ -218,11 +220,11 @@ namespace PROJECT_Test
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("FC Iconic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(647, 530);
+            this.label6.Location = new System.Drawing.Point(588, 535);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 30);
+            this.label6.Size = new System.Drawing.Size(70, 30);
             this.label6.TabIndex = 28;
-            this.label6.Text = "ที่อยู่ email\r\n";
+            this.label6.Text = "email\r\n";
             // 
             // label8
             // 
@@ -237,11 +239,11 @@ namespace PROJECT_Test
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("FC Home", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Crimson;
-            this.label9.Location = new System.Drawing.Point(803, 574);
+            this.label9.Location = new System.Drawing.Point(721, 576);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 31);
+            this.label9.Size = new System.Drawing.Size(0, 26);
             this.label9.TabIndex = 49;
             // 
             // pictureBox1
@@ -279,7 +281,7 @@ namespace PROJECT_Test
             this.saveaccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveaccount.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveaccount.ForeColor = System.Drawing.SystemColors.Window;
-            this.saveaccount.Location = new System.Drawing.Point(333, 703);
+            this.saveaccount.Location = new System.Drawing.Point(443, 703);
             this.saveaccount.Name = "saveaccount";
             this.saveaccount.Size = new System.Drawing.Size(188, 48);
             this.saveaccount.TabIndex = 50;
@@ -312,7 +314,7 @@ namespace PROJECT_Test
             this.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnupdate.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnupdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnupdate.Location = new System.Drawing.Point(985, 585);
+            this.btnupdate.Location = new System.Drawing.Point(985, 692);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.Size = new System.Drawing.Size(188, 48);
             this.btnupdate.TabIndex = 53;
@@ -320,11 +322,42 @@ namespace PROJECT_Test
             this.btnupdate.UseVisualStyleBackColor = false;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("FC Iconic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
+            this.label11.Location = new System.Drawing.Point(1046, 532);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 28);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "@gmail.com";
+            // 
+            // btndelete
+            // 
+            this.btndelete.BackColor = System.Drawing.Color.Crimson;
+            this.btndelete.FlatAppearance.BorderSize = 0;
+            this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndelete.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btndelete.ForeColor = System.Drawing.SystemColors.Window;
+            this.btndelete.Location = new System.Drawing.Point(54, 703);
+            this.btndelete.Name = "btndelete";
+            this.btndelete.Size = new System.Drawing.Size(188, 48);
+            this.btndelete.TabIndex = 55;
+            this.btndelete.Text = "ลบบัญชี";
+            this.btndelete.UseVisualStyleBackColor = false;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            // 
             // UserControladmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
+            this.Controls.Add(this.btndelete);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label10);
@@ -381,5 +414,7 @@ namespace PROJECT_Test
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnupdate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btndelete;
     }
 }

@@ -109,10 +109,10 @@ namespace PROJECT_Test
             }
             conn.Close();
             Program.user = user;
-            MessageBox.Show("เข้าสู่ระบบสำเร็จ", "แจ้งเตือน");
             //MessageBox.Show(Program.status_login + " " + Program.user + " " + checkhave.ToString());
             if (checkhave == true)
             {
+                MessageBox.Show("เข้าสู่ระบบสำเร็จ", "แจ้งเตือน");
                 Form4 f4 = new Form4();
                 this.Hide();
                 f4.Show();

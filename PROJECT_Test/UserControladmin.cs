@@ -90,6 +90,7 @@ namespace PROJECT_Test
                 searchbutton.Enabled = true;
                 username.Enabled = false;
                 textBoxemail.Enabled = false;
+                btndelete.Enabled = true;
             }
             else if (Program.status_login == "sales")
             {
@@ -102,6 +103,7 @@ namespace PROJECT_Test
                 searchbutton.Enabled = false;
                 username.Enabled = false;
                 textBoxemail.Enabled = false;
+                btndelete.Enabled = false;
             }
             
         }
@@ -150,29 +152,26 @@ namespace PROJECT_Test
             }
         }
 
-        private void newaccount_Click_1(object sender, EventArgs e)
+        private void newaccount_Click_1(object sender, EventArgs e) //ปุ่มสร้างบัญชีผู้ใช้
         {
+            btnupdate.Enabled = false; //ปุ่มอัปเดตปิด
             username.ResetText();
             password.ResetText();
             fname.ResetText();
             lname.ResetText();
             textBoxemail.ResetText();
+            textBoxemail.Enabled = true; //textboxemail เปิดใช้งาน
+            username.Enabled = true;
         }
 
         private void username_TextChanged(object sender, EventArgs e)
         {
-            if (username.Text == "") 
-            {
-                label8.ResetText();
-            }
+            label8.ResetText();
         }
 
         private void textBoxemail_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxemail.Text == "")
-            {
-                label9.ResetText();
-            }
+            label9.ResetText();
         }
 
         private void saveaccount_Click(object sender, EventArgs e)
@@ -187,7 +186,7 @@ namespace PROJECT_Test
             MySqlCommand cmd2;
             cmd = conn.CreateCommand();
             cmd2 = conn2.CreateCommand();
-            string email = textBoxemail.Text;
+            string email = textBoxemail.Text +"@gmail.com";
             string usename = username.Text;
             cmd.CommandText = $"SELECT * FROM admin WHERE username =\"{usename}\"";
             cmd2.CommandText = $"SELECT * FROM admin WHERE  email =\"{email}\"";
@@ -208,7 +207,7 @@ namespace PROJECT_Test
             else
             {
                 MySqlConnection condata = databaseConnection();
-                string sql = "INSERT INTO admin (username, password, fname, lname, email, position) VALUES('" + username.Text + "' ,'" + password.Text + "' , '" + fname.Text + "','" + lname.Text + "','" + textBoxemail.Text + "')";
+                string sql = "INSERT INTO admin (username, password, fname, lname, email,status) VALUES" + $"(\"{username.Text}\",\"{password.Text}\",\"{fname.Text}\",\"{lname.Text}\",\"{textBoxemail.Text + "@gmail.com"}\",\"{"sales"}\")";
                 MySqlCommand dt = new MySqlCommand(sql, condata);
                 condata.Open();
                 dt.ExecuteNonQuery();
@@ -252,7 +251,7 @@ namespace PROJECT_Test
 
         private void textBoxemail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (((int)e.KeyChar >= 48 && (int)e.KeyChar <= 122) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13 || (int)e.KeyChar == 46)
+            if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13 || (int)e.KeyChar == 46)
             {
                 e.Handled = false;
             }
@@ -265,7 +264,7 @@ namespace PROJECT_Test
             }
         }
 
-        private void fname_KeyPress(object sender, KeyPressEventArgs e)
+        private void fname_KeyPress(object sender, KeyPressEventArgs e) //ใช้ภาษาไทยได้ ห้ามใช้ตัวเลข
         {
             if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
             {
@@ -275,15 +274,6 @@ namespace PROJECT_Test
         }
 
         private void lname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-                MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void position_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
             {
@@ -308,7 +298,7 @@ namespace PROJECT_Test
             if (Program.status_login == "admin")
             {
                 ShowGridViewadmin();
-                username.ReadOnly = false;
+                username.ReadOnly = true;
                 textBoxemail.ReadOnly = false;
                 newaccount.Enabled = true;
                 saveaccount.Enabled = true;
@@ -320,9 +310,31 @@ namespace PROJECT_Test
                 textBoxemail.ReadOnly = true;
                 newaccount.Enabled = false;
                 saveaccount.Enabled = false;
+                ShowGridViewSale();
             }
 
         }
 
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            int selectedRow = GridViewadmin.CurrentCell.RowIndex;
+            int deleteuser = Convert.ToInt32(GridViewadmin.Rows[selectedRow].Cells["ID"].Value);
+
+            MySqlConnection conn = databaseConnection();
+            string sql = "DELETE FROM admin WHERE ID = '" + deleteuser + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            conn.Open();
+
+            int rows = cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            if (rows > 0)
+            {
+                MessageBox.Show("ลบข้อมูลสำเร็จ", "แจ้งเตือน");
+                ShowGridViewadmin();
+            }
+        }
     }
 }

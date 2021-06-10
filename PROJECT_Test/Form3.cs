@@ -201,7 +201,7 @@ namespace PROJECT_Test
 
         }
 
-        private void Boxemail_Keypress(object sender, KeyPressEventArgs e)
+        private void Boxemail_Keypress(object sender, KeyPressEventArgs e) //ห้ามใช้อักษรไทย อักขระพิเศษยกเว้น . _
         {
 
             if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57)||(int)e.KeyChar == 8 || (int)e.KeyChar == 13 || (int)e.KeyChar == 46)
@@ -216,7 +216,7 @@ namespace PROJECT_Test
                 MessageBox.Show("กรุณาตรวจสอบอักขระ", "ผลการตรวจสอบ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void nameaccount_KeyPress(object sender, KeyPressEventArgs e)
+        private void nameaccount_KeyPress(object sender, KeyPressEventArgs e) //ห้ามใช้อักษรไทย อักขระพิเศษ
         {
             if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
             {
@@ -231,7 +231,7 @@ namespace PROJECT_Test
             }
         }
 
-        private void Boxpassword1_KeyPress(object sender, KeyPressEventArgs e)
+        private void Boxpassword1_KeyPress(object sender, KeyPressEventArgs e) //ห้ามใช้อักษรไทย อักขระพิเศษ
         {
             if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
             {
@@ -246,7 +246,7 @@ namespace PROJECT_Test
             }
         }
 
-        private void Boxpassword2_KeyPress(object sender, KeyPressEventArgs e)
+        private void Boxpassword2_KeyPress(object sender, KeyPressEventArgs e) //ห้ามใช้อักษรไทย อักขระพิเศษ
         {
             if (((int)e.KeyChar >= 65 && (int)e.KeyChar <= 122) || ((int)e.KeyChar >= 48 && (int)e.KeyChar <= 57) || (int)e.KeyChar == 8 || (int)e.KeyChar == 13)
             {
@@ -297,7 +297,7 @@ namespace PROJECT_Test
             }
         }
 
-        private void textBoxfname_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxfname_KeyPress(object sender, KeyPressEventArgs e) //ห้ามใส่ตัวเลข อักขระพิเศษ
         {
             if (Char.IsControl(e.KeyChar) != true && Char.IsNumber(e.KeyChar) == true && !char.IsLetter(e.KeyChar))
             {
