@@ -14,6 +14,7 @@ namespace PROJECT_Test
     public partial class history : UserControl
     {
         private List<Forprinthis> allhisstock = new List<Forprinthis>(); /*listประวัติ*/
+
         private MySqlConnection databaseConnection()
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=bbcare_shop;";
@@ -69,31 +70,62 @@ namespace PROJECT_Test
 
         private void history_Load(object sender, EventArgs e)
         {
-            
+
             dateTimePicker1.Value = System.DateTime.Now;
             dateTimePicker2.Value = System.DateTime.Now;
             if (Program.status_login == "sales")
             {
                 Showdataproduct();
-                label4.Hide();
+                
             }
             else if (Program.user == "admin")
             {
                 ShowdataproductAdmin();
-                label9.Hide();
+                
             }
             
         }
 
         int sum = 0;
         int total = 0;
+        int date; //ตัวแปรปฏิทิน
         private void btnsearch_Click(object sender, EventArgs e)
         {
             //admin
             if(Program.status_login == "admin")
             {
-                if (searchbox.Text != "")
+
+                if (dateTimePicker1.Value.ToString("yyyy-MM-dd") == dateTimePicker2.Value.ToString("yyyy-MM-dd"))
                 {
+                    MySqlConnection conn1 = databaseConnection();
+
+                    DataSet ds1 = new DataSet();
+
+                    conn1.Open();
+                    MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM history WHERE sale_date like '%" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "%' AND name like '%" + searchbox.Text + "%'", conn1);
+
+
+                    MySqlDataAdapter da1 = new MySqlDataAdapter(cmd1);
+
+                    da1.Fill(ds1);
+                    conn1.Close();
+                    datahistory.DataSource = ds1.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนเงิน
+                    total = 0; //ตัวแปรยอดรวมจำนวนสินค้า
+                    conn1.Open();
+                    MySqlDataReader read = cmd1.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn1.Close();
+                }
+                else if(searchbox.Text != "")
+                {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
                     MySqlConnection conn = databaseConnection();
 
                     DataSet ds = new DataSet();
@@ -102,15 +134,80 @@ namespace PROJECT_Test
                     MySqlCommand cmd;
 
                     cmd = conn.CreateCommand();
-                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data or sales=@data" ;
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data";
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd")); //เอาค่าจาก dateTimePicker ไปเก็บที่ parameters @date1
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-"+date+""));
                     da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
                     da.Fill(ds);
                     conn.Close();
                     datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
+                }
+                else
+                {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-"+date+""));
+                    da.Fill(ds);
+                    conn.Close();
+                    datahistory.DataSource = ds.Tables[0].DefaultView;
+                    sum = 0; //ตัวแปรจำนวนสินค้า
+                    total = 0; //ตัวแปรยอดรวมจำนวนเงิน
+                    conn.Open();
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    while (read.Read())
+                    {
+                        sum = sum + int.Parse(read.GetString(3));
+                        total = total + int.Parse(read.GetString(2));
+                    }
+                    textBoxTotal.Text = $"{sum}";
+                    totalpro.Text = $"{total}";
+                    conn.Close();
+
+                }
+            }
+            //sale
+            else if (Program.status_login == "sales")
+            {
+
+                if (dateTimePicker1.Value.ToString("yyyy-MM-dd") == dateTimePicker2.Value.ToString("yyyy-MM-dd"))
+                {
+                    MySqlConnection conn = databaseConnection();
+
+                    DataSet ds2 = new DataSet();
+
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM history WHERE sale_date like '%" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "%' AND name like '%" + searchbox.Text + "%' AND sales = '"+Program.user+"'", conn);
+
+                    MySqlDataAdapter da2 = new MySqlDataAdapter(cmd);
+
+                    da2.Fill(ds2);
+                    conn.Close();
+                    datahistory.DataSource = ds2.Tables[0].DefaultView;
                     sum = 0; //ตัวแปรจำนวนเงิน
                     total = 0; //ตัวแปรยอดรวมจำนวนสินค้า
                     conn.Open();
@@ -124,43 +221,9 @@ namespace PROJECT_Test
                     totalpro.Text = $"{total}";
                     conn.Close();
                 }
-                else
+                else if(searchbox.Text != "")
                 {
-                    MySqlConnection conn = databaseConnection();
-
-                    DataSet ds = new DataSet();
-
-                    conn.Open();
-                    MySqlCommand cmd;
-
-                    cmd = conn.CreateCommand();
-                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2";
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-                    da.Fill(ds);
-                    conn.Close();
-                    datahistory.DataSource = ds.Tables[0].DefaultView;
-                    sum = 0; //ตัวแปรจำนวนยอดเงิน
-                    total = 0; //ตัวแปรยอดรวมจำนวนสินค้า
-                    conn.Open();
-                    MySqlDataReader read = cmd.ExecuteReader();
-                    while (read.Read())
-                    {
-                        sum = sum + int.Parse(read.GetString(3));
-                        total = total + int.Parse(read.GetString(2));
-                    }
-                    textBoxTotal.Text = $"{sum}";
-                    totalpro.Text = $"{total}";
-                    conn.Close();
-                }
-            }
-            //sale
-            else if (Program.status_login == "sales")
-            {
-                if (searchbox.Text != "")
-                {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
                     MySqlConnection conn = databaseConnection();
 
                     DataSet ds = new DataSet();
@@ -172,8 +235,8 @@ namespace PROJECT_Test
                     cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data and sales=@user";
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd")); //เอาค่าจาก dateTimePicker ไปเก็บที่ parameters @date1
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-"+date+""));
                     da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
                     da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
                     da.Fill(ds);
@@ -194,6 +257,7 @@ namespace PROJECT_Test
                 }
                 else
                 {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
                     MySqlConnection conn = databaseConnection();
 
                     DataSet ds = new DataSet();
@@ -206,7 +270,7 @@ namespace PROJECT_Test
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-"+date+""));
                     da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
                     da.Fill(ds);
                     conn.Close();
@@ -225,30 +289,16 @@ namespace PROJECT_Test
                     conn.Close();
                 }
             }
-
         }
 
         private void searchbox_TextChanged(object sender, EventArgs e)
         {
             if (searchbox.Text == "")
             {
-                MySqlConnection conn = databaseConnection();
-
-                DataSet ds = new DataSet();
-
-                conn.Open();
-
-                MySqlCommand cmd;
-
-                cmd = conn.CreateCommand();
-                cmd.CommandText = "SELECT * FROM history";
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                adapter.Fill(ds);
-
-                conn.Close();
-
-                datahistory.DataSource = ds.Tables[0].DefaultView;
+                if (Program.status_login == "sales")
+                {
+                    Showdataproduct();
+                }
             }
         }
 
@@ -297,26 +347,22 @@ namespace PROJECT_Test
             e.Graphics.DrawString("ชิ้น", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(750, y + 20));
             e.Graphics.DrawString("บาท", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(750, y + 20 + 20));
         }
+
         private void loaddata()
         {
+
             //admin
             if (Program.status_login == "admin")
             {
-                if (searchbox.Text != "")
+
+                if (dateTimePicker1.Value.ToString("yyyy-MM-dd") == dateTimePicker2.Value.ToString("yyyy-MM-dd"))
                 {
                     MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
                     conn.Open();
 
-                    MySqlCommand cmd;
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM history WHERE sale_date like '%" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "%' AND name like '%" + searchbox.Text + "%'", conn);
 
-                    cmd = conn.CreateCommand();
-                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data or sales=@data";
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd); 
-                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
-
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     MySqlDataReader adapter = cmd.ExecuteReader();
 
                     while (adapter.Read())
@@ -341,8 +387,48 @@ namespace PROJECT_Test
                         allhisstock.Add(item);
                     }
                 }
+                else if(searchbox.Text != "")
+                {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
+                    MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
+                    conn.Open();
+
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-"+date+""));
+                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
+
+                    MySqlDataReader adapter = cmd.ExecuteReader();
+
+                    while (adapter.Read())
+                    {
+                        Program.IDhis = adapter.GetString("ID");
+                        Program.producthis = adapter.GetString("name");
+                        Program.pricehis = adapter.GetString("sum");
+                        Program.amounthis = adapter.GetString("amount");
+                        Program.datehis = adapter.GetString("sale_date");
+                        Program.saleshis = adapter.GetString("sales");
+                        Forprinthis item = new Forprinthis()
+                        {
+                            IDhis = Program.IDhis,
+                            producthis = Program.producthis,
+                            pricehis = Program.pricehis,
+                            amounthis = Program.amounthis,
+                            datehis = Program.datehis,
+                            saleshis = Program.saleshis
+
+                        };
+                        allhisstock.Add(item);
+                    }
+                }
                 else
                 {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
                     MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
                     conn.Open();
 
@@ -353,7 +439,7 @@ namespace PROJECT_Test
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-" + date + ""));
 
                     MySqlDataReader adapter = cmd.ExecuteReader();
 
@@ -381,22 +467,14 @@ namespace PROJECT_Test
             }
             else if (Program.status_login == "sales")
             {
-                if (searchbox.Text != "")
+                if (dateTimePicker1.Value.ToString("yyyy-MM-dd") == dateTimePicker2.Value.ToString("yyyy-MM-dd"))
                 {
                     MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
                     conn.Open();
 
-                    MySqlCommand cmd;
-
-                    cmd = conn.CreateCommand();
-                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data and sales=@user";
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM history WHERE sale_date like '%" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "%' AND name like '%" + searchbox.Text + "%' AND sales = '" + Program.user + "'", conn);
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
-                    da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
-
                     MySqlDataReader adapter = cmd.ExecuteReader();
 
                     while (adapter.Read())
@@ -421,8 +499,49 @@ namespace PROJECT_Test
                         allhisstock.Add(item);
                     }
                 }
+                else if(searchbox.Text != "")
+                {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
+                    MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
+                    conn.Open();
+
+                    MySqlCommand cmd;
+
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT * FROM history WHERE sale_date between @date1 and @date2 and name=@data and sales=@user";
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-" + date + ""));
+                    da.SelectCommand.Parameters.AddWithValue("@data", searchbox.Text);
+                    da.SelectCommand.Parameters.AddWithValue("@user", Program.user); ;
+
+                    MySqlDataReader adapter = cmd.ExecuteReader();
+
+                    while (adapter.Read())
+                    {
+                        Program.IDhis = adapter.GetString("ID");
+                        Program.producthis = adapter.GetString("name");
+                        Program.pricehis = adapter.GetString("sum");
+                        Program.amounthis = adapter.GetString("amount");
+                        Program.datehis = adapter.GetString("sale_date");
+                        Program.saleshis = adapter.GetString("sales");
+                        Forprinthis item = new Forprinthis()
+                        {
+                            IDhis = Program.IDhis,
+                            producthis = Program.producthis,
+                            pricehis = Program.pricehis,
+                            amounthis = Program.amounthis,
+                            datehis = Program.datehis,
+                            saleshis = Program.saleshis
+
+                        };
+                        allhisstock.Add(item);
+                    }
+                }
                 else
                 {
+                    date = int.Parse(dateTimePicker2.Value.ToString("dd")) + 1;
                     MySqlConnection conn = new MySqlConnection("host=127.0.0.1;username=root;password=;database=bbcare_shop;");
                     conn.Open();
 
@@ -433,9 +552,8 @@ namespace PROJECT_Test
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.SelectCommand.Parameters.AddWithValue("@date1", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
-                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                    da.SelectCommand.Parameters.AddWithValue("@date2", dateTimePicker2.Value.ToString("yyyy-MM-" + date + ""));
                     da.SelectCommand.Parameters.AddWithValue("@user", Program.user);
-
                     MySqlDataReader adapter = cmd.ExecuteReader();
 
                     while (adapter.Read())

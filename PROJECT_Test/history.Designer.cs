@@ -29,8 +29,8 @@ namespace PROJECT_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(history));
             this.label4 = new System.Windows.Forms.Label();
             this.searchbox = new System.Windows.Forms.TextBox();
@@ -51,7 +51,6 @@ namespace PROJECT_Test
             this.label8 = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datahistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,18 +59,18 @@ namespace PROJECT_Test
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(54, 131);
+            this.label4.Location = new System.Drawing.Point(56, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(271, 37);
+            this.label4.Size = new System.Drawing.Size(116, 37);
             this.label4.TabIndex = 81;
-            this.label4.Text = "ชื่อสินค้าหรือพนักงาน";
+            this.label4.Text = "ชื่อสินค้า";
             // 
             // searchbox
             // 
             this.searchbox.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchbox.Location = new System.Drawing.Point(61, 184);
+            this.searchbox.Location = new System.Drawing.Point(188, 184);
             this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(495, 44);
+            this.searchbox.Size = new System.Drawing.Size(368, 44);
             this.searchbox.TabIndex = 78;
             this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
@@ -82,24 +81,24 @@ namespace PROJECT_Test
             this.datahistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.datahistory.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.datahistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datahistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datahistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.datahistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datahistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSalmon;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datahistory.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.LightSalmon;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datahistory.DefaultCellStyle = dataGridViewCellStyle26;
             this.datahistory.Location = new System.Drawing.Point(593, 184);
             this.datahistory.Margin = new System.Windows.Forms.Padding(4);
             this.datahistory.Name = "datahistory";
@@ -126,13 +125,14 @@ namespace PROJECT_Test
             this.dateTimePicker1.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.LavenderBlush;
             this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Font = new System.Drawing.Font("FC Home", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(188, 246);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(368, 44);
             this.dateTimePicker1.TabIndex = 85;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 6, 4, 0, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2021, 6, 14, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -140,6 +140,7 @@ namespace PROJECT_Test
             this.dateTimePicker2.CalendarForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.dateTimePicker2.CalendarMonthBackground = System.Drawing.Color.LavenderBlush;
             this.dateTimePicker2.CalendarTrailingForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dateTimePicker2.CustomFormat = "";
             this.dateTimePicker2.Font = new System.Drawing.Font("FC Home", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -290,23 +291,12 @@ namespace PROJECT_Test
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("FC Iconic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(54, 131);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 37);
-            this.label9.TabIndex = 96;
-            this.label9.Text = "ชื่อสินค้า";
-            // 
             // history
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxTotal);
@@ -353,6 +343,5 @@ namespace PROJECT_Test
         private System.Windows.Forms.Label label8;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.Label label9;
     }
 }

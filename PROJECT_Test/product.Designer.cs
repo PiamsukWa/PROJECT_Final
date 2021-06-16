@@ -29,8 +29,9 @@ namespace PROJECT_Test
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(product));
             this.txtprice = new System.Windows.Forms.TextBox();
             this.insert = new System.Windows.Forms.Button();
             this.txtkind = new System.Windows.Forms.TextBox();
@@ -53,6 +54,9 @@ namespace PROJECT_Test
             this.btnreset = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnprint = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataproduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,9 +77,9 @@ namespace PROJECT_Test
             this.insert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insert.ForeColor = System.Drawing.SystemColors.Window;
-            this.insert.Location = new System.Drawing.Point(290, 702);
+            this.insert.Location = new System.Drawing.Point(789, 689);
             this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(210, 51);
+            this.insert.Size = new System.Drawing.Size(163, 51);
             this.insert.TabIndex = 58;
             this.insert.Text = "เพิ่มข้อมูล";
             this.insert.UseVisualStyleBackColor = false;
@@ -97,9 +101,9 @@ namespace PROJECT_Test
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.update.Location = new System.Drawing.Point(529, 702);
+            this.update.Location = new System.Drawing.Point(958, 689);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(229, 51);
+            this.update.Size = new System.Drawing.Size(181, 51);
             this.update.TabIndex = 56;
             this.update.Text = "อัปเดตข้อมูล";
             this.update.UseVisualStyleBackColor = false;
@@ -122,9 +126,9 @@ namespace PROJECT_Test
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.ForeColor = System.Drawing.SystemColors.Window;
-            this.delete.Location = new System.Drawing.Point(42, 703);
+            this.delete.Location = new System.Drawing.Point(603, 690);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(219, 50);
+            this.delete.Size = new System.Drawing.Size(174, 50);
             this.delete.TabIndex = 54;
             this.delete.Text = "ลบสินค้า";
             this.delete.UseVisualStyleBackColor = false;
@@ -137,7 +141,7 @@ namespace PROJECT_Test
             this.searchbox.Name = "searchbox";
             this.searchbox.Size = new System.Drawing.Size(520, 44);
             this.searchbox.TabIndex = 53;
-            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged_1);
             // 
             // textamount
             // 
@@ -175,24 +179,24 @@ namespace PROJECT_Test
             this.dataproduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataproduct.BackgroundColor = System.Drawing.Color.Lavender;
             this.dataproduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataproduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataproduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataproduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSalmon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataproduct.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("FC Home", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSalmon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataproduct.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataproduct.Location = new System.Drawing.Point(56, 257);
             this.dataproduct.Margin = new System.Windows.Forms.Padding(4);
             this.dataproduct.Name = "dataproduct";
@@ -336,11 +340,44 @@ namespace PROJECT_Test
             this.label2.TabIndex = 72;
             this.label2.Text = "ชื่อ";
             // 
+            // btnprint
+            // 
+            this.btnprint.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnprint.FlatAppearance.BorderSize = 0;
+            this.btnprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnprint.Font = new System.Drawing.Font("FC Iconic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnprint.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.btnprint.Image = global::PROJECT_Test.Properties.Resources.kissclipart_computer_printer_vector_clipart_inkjet_printing_pr_a0f7eecac7b82ec0_removebg_preview__1_;
+            this.btnprint.Location = new System.Drawing.Point(55, 690);
+            this.btnprint.Name = "btnprint";
+            this.btnprint.Size = new System.Drawing.Size(178, 58);
+            this.btnprint.TabIndex = 90;
+            this.btnprint.Text = "พิมพ์";
+            this.btnprint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnprint.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnprint.UseVisualStyleBackColor = false;
+            this.btnprint.Click += new System.EventHandler(this.btnprint_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
+            this.Controls.Add(this.btnprint);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnreset);
             this.Controls.Add(this.label4);
@@ -397,5 +434,8 @@ namespace PROJECT_Test
         private System.Windows.Forms.Button btnreset;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnprint;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

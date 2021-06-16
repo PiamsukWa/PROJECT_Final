@@ -57,6 +57,7 @@ namespace PROJECT_Test
             this.buttonkind = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.content = new System.Windows.Forms.Panel();
+            this.btnedit = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.btnsearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -294,6 +295,7 @@ namespace PROJECT_Test
             this.datacart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datacart.Size = new System.Drawing.Size(254, 281);
             this.datacart.TabIndex = 24;
+            this.datacart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datacart_CellClick);
             // 
             // buttonlistshop
             // 
@@ -423,6 +425,7 @@ namespace PROJECT_Test
             // 
             // content
             // 
+            this.content.Controls.Add(this.btnedit);
             this.content.Controls.Add(this.label14);
             this.content.Controls.Add(this.btnsearch);
             this.content.Controls.Add(this.label11);
@@ -441,6 +444,23 @@ namespace PROJECT_Test
             this.content.Name = "content";
             this.content.Size = new System.Drawing.Size(946, 545);
             this.content.TabIndex = 16;
+            // 
+            // btnedit
+            // 
+            this.btnedit.BackColor = System.Drawing.Color.Plum;
+            this.btnedit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnedit.FlatAppearance.BorderSize = 0;
+            this.btnedit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btnedit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
+            this.btnedit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnedit.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnedit.Location = new System.Drawing.Point(678, 413);
+            this.btnedit.Name = "btnedit";
+            this.btnedit.Size = new System.Drawing.Size(256, 54);
+            this.btnedit.TabIndex = 85;
+            this.btnedit.Text = "แก้ไขจำนวน";
+            this.btnedit.UseVisualStyleBackColor = false;
+            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
             // label14
             // 
@@ -521,7 +541,7 @@ namespace PROJECT_Test
             this.priceproduct.AutoSize = true;
             this.priceproduct.BackColor = System.Drawing.SystemColors.Info;
             this.priceproduct.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceproduct.Location = new System.Drawing.Point(766, 212);
+            this.priceproduct.Location = new System.Drawing.Point(766, 184);
             this.priceproduct.Name = "priceproduct";
             this.priceproduct.Size = new System.Drawing.Size(0, 39);
             this.priceproduct.TabIndex = 37;
@@ -530,7 +550,7 @@ namespace PROJECT_Test
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(687, 212);
+            this.label9.Location = new System.Drawing.Point(687, 184);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 39);
             this.label9.TabIndex = 36;
@@ -551,7 +571,7 @@ namespace PROJECT_Test
             this.product.AutoSize = true;
             this.product.BackColor = System.Drawing.SystemColors.Info;
             this.product.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product.Location = new System.Drawing.Point(699, 148);
+            this.product.Location = new System.Drawing.Point(699, 131);
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(0, 39);
             this.product.TabIndex = 34;
@@ -572,10 +592,12 @@ namespace PROJECT_Test
             "8",
             "9",
             "10"});
-            this.comboamount.Location = new System.Drawing.Point(733, 346);
+            this.comboamount.Location = new System.Drawing.Point(733, 302);
             this.comboamount.Name = "comboamount";
             this.comboamount.Size = new System.Drawing.Size(144, 32);
             this.comboamount.TabIndex = 33;
+            this.comboamount.TextChanged += new System.EventHandler(this.comboamount_TextChanged);
+            this.comboamount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboamount_KeyPress);
             // 
             // btninsert
             // 
@@ -586,7 +608,7 @@ namespace PROJECT_Test
             this.btninsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.btninsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btninsert.Font = new System.Drawing.Font("FC Daisy", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btninsert.Location = new System.Drawing.Point(678, 409);
+            this.btninsert.Location = new System.Drawing.Point(678, 352);
             this.btninsert.Name = "btninsert";
             this.btninsert.Size = new System.Drawing.Size(256, 54);
             this.btninsert.TabIndex = 31;
@@ -598,7 +620,7 @@ namespace PROJECT_Test
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("FC Daisy", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(750, 303);
+            this.label5.Location = new System.Drawing.Point(750, 259);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 36);
             this.label5.TabIndex = 29;
@@ -809,6 +831,7 @@ namespace PROJECT_Test
         private System.Windows.Forms.Button btnsearch;
         private System.Windows.Forms.TextBox searchbox;
         private System.Windows.Forms.TextBox txtpersonnel;
+        private System.Windows.Forms.Button btnedit;
     }
 }
 

@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="ForPrint.cs" />
     <Compile Include="Forprinthis.cs" />
+    <Compile Include="Forprintstock.cs" />
     <Compile Include="history.cs">
       <SubType>UserControl</SubType>
     </Compile>

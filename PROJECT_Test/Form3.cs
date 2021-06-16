@@ -150,13 +150,6 @@ namespace PROJECT_Test
             this.Close();
         }
 
-        private void buttonhome_Click_1(object sender, EventArgs e)
-        {
-            Form1 form = new Form1();
-            form.Show();
-            this.Close();
-        }
-
         private void Boxpassword2_TextChanged(object sender, EventArgs e)
         {
             if (Boxpassword1.Text != "" && Boxpassword2.Text == Boxpassword1.Text && Boxpassword2.Text != ""&& Boxemail.Text != "" && nameaccount.Text != "")
@@ -192,7 +185,7 @@ namespace PROJECT_Test
         private void Boxemail_TextChanged(object sender, EventArgs e)
         {
 
-            labelcheckmail.Text = "";
+            labelcheckmail.Text = ""; //รีเซ็ตตอน e-mail ซ้ำ
         }
 
         private void nameaccount_TextChanged(object sender, EventArgs e) // ชื่อบัญชีผู้ใช้

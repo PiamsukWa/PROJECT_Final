@@ -12,14 +12,6 @@ namespace PROJECT_Test
 {
     public partial class Form4 : Form
     {
-        //public string UserID
-        //{
-        //    get { return label3.Text; }
-        //}
-        //private void lable3_TextChanged(object sender, EventArgs e)
-        //{
-        //    UserControladmin.UserID = UserID;
-        //}
 
         public Form4()
         {
@@ -31,7 +23,8 @@ namespace PROJECT_Test
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e) // ออกจากระบบ
+        // ออกจากระบบ
+        private void button1_Click(object sender, EventArgs e) 
         {
             Form1 form = new Form1();
             form.Show();

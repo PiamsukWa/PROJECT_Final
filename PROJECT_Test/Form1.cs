@@ -135,12 +135,41 @@ namespace PROJECT_Test
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             MySqlConnection conn = databaseConnection();
-            string sql = "DELETE FROM cart";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-
             conn.Open();
-            int rows = cmd.ExecuteNonQuery();
+            MySqlCommand cmd;
+            cmd = conn.CreateCommand();
+            cmd.CommandText = $"SELECT * FROM cart ";
+            MySqlDataReader row = cmd.ExecuteReader();
+            
+            while (row.Read()) //sum_old ไว้คำนวณราคารวม
+            {
+                MySqlConnection conn2 = databaseConnection();
+                conn2.Open();
+                MySqlCommand cmd2;
+                cmd2 = conn2.CreateCommand();
+                cmd2.CommandText = $"SELECT * FROM stockproduct WHERE ID = \"{row.GetString(0)}\"";
+                MySqlDataReader row2 = cmd2.ExecuteReader();
+                while (row2.Read())
+                {
+                    amountnew = $"{int.Parse(row.GetString(3)) + int.Parse(row2.GetString(3))}";
+                }
+                conn2.Close();
+
+                conn2.Open();
+                string sql3 = "UPDATE stockproduct SET amount = '" + amountnew + "' WHERE ID = '" + row.GetString(0) + "'";
+                MySqlCommand command = new MySqlCommand(sql3, conn2);
+                command.ExecuteReader();
+                conn2.Close();
+            }
             conn.Close();
+
+            MySqlConnection conn1 = databaseConnection();
+            string sql = "DELETE FROM cart";
+            MySqlCommand cmd1 = new MySqlCommand(sql, conn1);
+
+            conn1.Open();
+            int rows = cmd1.ExecuteNonQuery();
+            conn1.Close();
             Application.Exit();
         }
 
@@ -219,51 +248,6 @@ namespace PROJECT_Test
         private void btnpay_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = databaseConnection();
-
-
-            conn.Open();
-
-            string sql = "SELECT * FROM cart";
-
-            MySqlCommand cmd = new MySqlCommand(sql,conn);
-            MySqlDataReader read = cmd.ExecuteReader();
-
-            while (read.Read())
-            {
-                idFormcart = read.GetString("ID").ToString();
-                amountFormcart = read.GetString("amount").ToString();
-                stock item = new stock()
-                {
-                    IDold = idFormcart,
-                    amountold = amountFormcart
-                };
-                allstock.Add(item);
-            }
-            conn.Close();
-
-            foreach(var i in allstock)
-            {
-                conn.Open();
-                string sqlcom = "SELECT * FROM stockproduct WHERE ID = '" + i.IDold + "'";
-                MySqlCommand command = new MySqlCommand(sqlcom, conn);
-                MySqlDataReader readdata = command.ExecuteReader();
-                while (readdata.Read())
-                {
-                    amountfromDB = readdata.GetString("amount").ToString();
-                }
-                conn.Close();
-
-                amountnew = (int.Parse(amountfromDB) - int.Parse(amountFormcart)).ToString();
-                
-                conn.Open();
-                string sqlcom1 = "UPDATE stockproduct SET amount = '"+ amountnew +"' WHERE ID = '"+ i.IDold +"'";
-                MySqlCommand command1 = new MySqlCommand(sqlcom1, conn);
-                command1.ExecuteReader();
-                conn.Close();   
-            }
-            allstock.Clear();
-
-            //ย้ายไปยัง history
             conn.Open();
             string sql1 = "SELECT * FROM cart";
 
@@ -334,39 +318,99 @@ namespace PROJECT_Test
 
             datacart.DataSource = ds.Tables[0].DefaultView;
         }
-        int chek;
+        int check, amountold;
         private void btninsert_Click(object sender, EventArgs e) //เพิ่มลงตะกร้า
         {
-            MySqlConnection conn = databaseConnection();
-            conn.Open();
-            MySqlCommand cmd;
-            cmd = conn.CreateCommand();
-            cmd.CommandText = $"SELECT *FROM stockproduct WHERE name='{product.Text}'";
-            MySqlDataReader row = cmd.ExecuteReader();
-            if (row.HasRows)
+            if (dtstock == true)
             {
-                while (row.Read())
-                {
-                    chek = int.Parse(row.GetString(3));
-                }
-            }
-            conn.Close();
-
-            if (chek >= int.Parse(comboamount.Text))
-            {
-                string sql = "INSERT INTO cart (ID, product, price, amount,sum) VALUES('" + id.Text + "' ,'" + product.Text + "' , '" + priceproduct.Text + "','" + comboamount.Text + "','" + (int.Parse(comboamount.Text) * int.Parse(priceproduct.Text)).ToString() + "')";
+                MySqlConnection conn = databaseConnection();
                 conn.Open();
-                cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteReader();
+                MySqlCommand cmd;
+                cmd = conn.CreateCommand();
+                cmd.CommandText = $"SELECT *FROM stockproduct WHERE ID='{id.Text}'";
+                MySqlDataReader row = cmd.ExecuteReader();
+                if (row.HasRows)
+                {
+                    while (row.Read()) //sum_old ไว้คำนวณราคารวม
+                    {
+                        check = int.Parse(row.GetString(3)); //จำนวนในสต๊อก
+                        sum_old = int.Parse(row.GetString(4));
+                    }
+                }
                 conn.Close();
-                MessageBox.Show("เพิ่มข้อมูลสำเร็จ", "แจ้งเตือน");
-                Showdatacart();
-                showprice();
-            }
-            else
-            {
-                MessageBox.Show("ขออภัยค่ะ จำนวนสินค้าในคลังไม่เพียงพอ", "แจ้งเตือน");
-            }
+                if (check >= int.Parse(comboamount.Text))
+                {
+                    conn.Open();
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT *FROM cart WHERE ID='{id.Text}'";
+                    row = cmd.ExecuteReader();
+
+                    if (row.HasRows)
+                    {
+                        while (row.Read())
+                        {
+                            amountold = int.Parse(row.GetString(3)); //จำนวนในตะกร้า
+                            
+                        }
+                        amountnew = (amountold + int.Parse(comboamount.Text)).ToString();
+                        MySqlConnection conn1 = databaseConnection();
+                        conn1.Open();
+                        string sql = "UPDATE cart SET amount = '" + amountnew + "',sum = '" + int.Parse(amountnew) * sum_old +"' WHERE ID = '" + id.Text + "'";
+                        MySqlCommand command1 = new MySqlCommand(sql, conn1);
+                        command1.ExecuteReader();
+                        conn1.Close();
+
+                        conn1.Open();
+                        sql = "UPDATE stockproduct SET amount = '" + (check - int.Parse(amountnew)) + "' WHERE ID = '" + id.Text + "'";
+                        command1 = new MySqlCommand(sql, conn1);
+                        command1.ExecuteReader();
+                        conn1.Close();
+                        MessageBox.Show("เพิ่มข้อมูลสำเร็จ", "ระบบ");
+                        Showdataproduct();
+                        Showdatacart();
+                        showprice();
+                    }
+                    else
+                    {
+                        MySqlConnection conn1 = databaseConnection();
+                        string sql = "INSERT INTO cart (ID, product, price, amount,sum) VALUES('" + id.Text + "' ,'" + product.Text + "' , '" + priceproduct.Text + "','" + comboamount.Text + "','" + (int.Parse(comboamount.Text) * int.Parse(priceproduct.Text)).ToString() + "')";
+                        conn1.Open();
+                        cmd = new MySqlCommand(sql, conn1);
+                        cmd.ExecuteReader();
+                        conn1.Close();
+
+
+                        conn1.Open();
+                        sql = "SELECT * FROM stockproduct WHERE ID = '" + id.Text + "'";
+                        MySqlCommand command = new MySqlCommand(sql, conn1);
+                        MySqlDataReader readdata = command.ExecuteReader();
+                        while (readdata.Read())
+                        {
+                            amountfromDB = readdata.GetString("amount").ToString();
+                        }
+                        conn1.Close();
+
+                        amountnew = (int.Parse(amountfromDB) - int.Parse(comboamount.Text)).ToString();
+
+                        conn1.Open();
+                        MessageBox.Show("เพิ่มสินค้าสำเร็จ", "แจ้งเตือน");
+
+                        sql = "UPDATE stockproduct SET amount = '" + amountnew + "' WHERE ID = '" + id.Text + "'";
+                        MySqlCommand command1 = new MySqlCommand(sql, conn1);
+                        command1.ExecuteReader();
+                        conn1.Close();
+
+                        Showdataproduct();
+                        Showdatacart();
+                        showprice();
+                    }
+                    conn.Close();
+                }
+                else
+                {
+                    MessageBox.Show("ขออภัยค่ะ จำนวนสินค้าในคลังไม่เพียงพอ", "แจ้งเตือน");
+                }
+            }     
         }
         int sum = 0;
         private void showprice() //ยอดรวม
@@ -386,13 +430,14 @@ namespace PROJECT_Test
 
 
         }
+        Boolean dtstock;
         private void dataproduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dataproduct.CurrentRow.Selected = true;
             id.Text = dataproduct.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
             product.Text = dataproduct.Rows[e.RowIndex].Cells["name"].FormattedValue.ToString();
             priceproduct.Text = dataproduct.Rows[e.RowIndex].Cells["price"].FormattedValue.ToString();
-
+            dtstock = true;
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -411,6 +456,7 @@ namespace PROJECT_Test
             e.Graphics.DrawString("จำนวน", new Font("TH SarabunPSK", 16, FontStyle.Bold), Brushes.Black, new PointF(670, 255));
             e.Graphics.DrawString("-------------------------------------------------------------------------------------------------------------------------------------", new Font("TH SarabunPSK", 18, FontStyle.Bold), Brushes.Black, new PointF(50, 265));
             int y = 290;
+
             allbook.Clear();
             loaddata();
             foreach (var i in allbook)
@@ -456,26 +502,47 @@ namespace PROJECT_Test
             }
         }
 
+        int dltamount;
         private void btndelete_Click(object sender, EventArgs e)  /*ลบรายการ*/
         {
-            int selectedRow = datacart.CurrentCell.RowIndex;
-            int deleteuser = Convert.ToInt32(datacart.Rows[selectedRow].Cells["ID"].Value);
-
-            MySqlConnection conn = databaseConnection();
-            string sql = "DELETE FROM cart WHERE ID = '" + deleteuser + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-
-            conn.Open();
-
-            int rows = cmd.ExecuteNonQuery();
-
-            conn.Close();
-
-            if (rows > 0)
+            if(dtstock == false)
             {
-                MessageBox.Show("ลบข้อมูลสำเร็จ", "แจ้งเตือน");
-                Showdatacart();
-                showprice();
+                int selectedRow = datacart.CurrentCell.RowIndex;
+                int deleteuser = Convert.ToInt32(datacart.Rows[selectedRow].Cells["ID"].Value);
+                dltamount = Convert.ToInt32(datacart.Rows[selectedRow].Cells["amount"].Value);
+
+                MySqlConnection conn = databaseConnection();
+                string sql = "DELETE FROM cart WHERE ID = '" + deleteuser + "'";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                conn.Open();
+
+                int rows = cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                if (rows > 0)
+                {
+                    conn.Open();
+                    string sqlcom = "SELECT * FROM stockproduct WHERE ID = '" + deleteuser + "'";
+                    MySqlCommand command = new MySqlCommand(sqlcom, conn);
+                    MySqlDataReader readdata = command.ExecuteReader();
+                    while (readdata.Read())
+                    {
+                        amountfromDB = readdata.GetString("amount").ToString();
+                    }
+                    dltamount = dltamount + int.Parse(amountfromDB);
+                    conn.Close();
+                    conn.Open();
+                    sql = "UPDATE stockproduct SET amount = '" + dltamount + "' WHERE ID = '" + deleteuser + "'";
+                    command = new MySqlCommand(sql, conn);
+                    command.ExecuteReader();
+                    conn.Close();
+                    MessageBox.Show("ลบข้อมูลสำเร็จ", "แจ้งเตือน");
+                    Showdataproduct();
+                    Showdatacart();
+                    showprice();
+                }
             }
         }
 
@@ -593,6 +660,144 @@ namespace PROJECT_Test
                 txtpersonnel.Text = "";
                 txtpersonnel.ForeColor = Color.Black;
             }
+        }
+        private void comboamount_TextChanged(object sender, EventArgs e)
+        {
+            if (comboamount.Text == "0")
+            {
+                MessageBox.Show("กรุณาใส่จำนวนสินค้า", "ระบบแจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (dtstock == false)
+                {
+                    MySqlConnection conn = databaseConnection();
+                    conn.Open();
+                    MySqlCommand cmd;
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT *FROM cart WHERE ID='{id.Text}'";
+                    MySqlDataReader row = cmd.ExecuteReader();
+                    if (row.HasRows)
+                    {
+                        while (row.Read())
+                        {
+                            amountold = int.Parse(row.GetString(3)); //จำนวนในสต๊อก
+                        }
+                    }
+                    comboamount.Text = $"{amountold}";
+                    conn.Close();
+                }
+                else
+                {
+                    MySqlConnection conn = databaseConnection();
+                    conn.Open();
+                    MySqlCommand cmd;
+                    cmd = conn.CreateCommand();
+                    cmd.CommandText = $"SELECT *FROM stockproduct WHERE ID='{id.Text}'";
+                    MySqlDataReader row = cmd.ExecuteReader();
+                    if (row.HasRows)
+                    {
+                        while (row.Read())
+                        {
+                            amountold = int.Parse(row.GetString(3)); //จำนวนในสต๊อก
+                        }
+                    }
+                    comboamount.Text = "1";
+                    conn.Close();
+                }
+            }
+        }
+
+        private void comboamount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                MessageBox.Show("กรุณากรอกเฉพาะตัวเลข", "ระบบแจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        int check_1, check_2, sum_old;
+        private void btnedit_Click(object sender, EventArgs e)
+        {
+            if(dtstock == false)
+            {
+                MySqlConnection conn = databaseConnection();
+                conn.Open();
+                MySqlCommand cmd;
+                cmd = conn.CreateCommand();
+                cmd.CommandText = $"SELECT *FROM stockproduct WHERE ID='{id.Text}'";
+                MySqlDataReader row = cmd.ExecuteReader();
+                if (row.HasRows)
+                {
+                    while (row.Read())
+                    {
+                        check_1 = int.Parse(row.GetString(3)); //จำนวนในสต๊อก
+                        sum_old = int.Parse(row.GetString(4));
+                    }
+                }
+                conn.Close();
+
+                conn.Open();
+                cmd = conn.CreateCommand();
+                cmd.CommandText = $"SELECT *FROM cart WHERE ID='{id.Text}'";
+                row = cmd.ExecuteReader();
+                if (row.HasRows)
+                {
+                    while (row.Read())
+                    {
+                        check_2 = int.Parse(row.GetString(3)); //จำนวนในสต๊อก
+                    }
+                }
+                conn.Close();
+
+                if (check_1 >= int.Parse(comboamount.Text))
+                {
+                    if (int.Parse(comboamount.Text) > check_2)
+                    {
+                        conn.Open();
+                        string sql = "UPDATE cart SET amount = '" + comboamount.Text + "', sum = '" + sum_old * int.Parse(comboamount.Text) + "' WHERE ID = '" + id.Text + "'";
+                        MySqlCommand command = new MySqlCommand(sql, conn);
+                        command.ExecuteReader();
+                        conn.Close();
+                        string amountstock = (check_1 - (int.Parse(comboamount.Text) - check_2)).ToString();
+                        conn.Open();
+                        sql = "UPDATE stockproduct SET amount = '" + amountstock + "' WHERE ID = '" + id.Text + "'";
+                        command = new MySqlCommand(sql, conn);
+                        command.ExecuteReader();
+                        conn.Close();
+                    }
+                    else
+                    {
+                        conn.Open();
+                        string sql = "UPDATE cart SET amount = '" + comboamount.Text + "', sum = '" + sum_old * int.Parse(comboamount.Text) + "' WHERE ID = '" + id.Text + "'";
+                        MySqlCommand command = new MySqlCommand(sql, conn);
+                        command.ExecuteReader();
+                        conn.Close();
+                        string amountstock = ((check_2 - int.Parse(comboamount.Text)) + check_1).ToString();
+                        conn.Open();
+                        sql = "UPDATE stockproduct SET amount = '" + amountstock + "' WHERE ID = '" + id.Text + "'";
+                        command = new MySqlCommand(sql, conn);
+                        command.ExecuteReader();
+                        conn.Close();
+                    }
+                    MessageBox.Show("แก้ข้อมูลสำเร็จ", "แจ้งเตือน");
+                    Showdataproduct();
+                    Showdatacart();
+                    showprice();
+                }
+                else
+                {
+                    MessageBox.Show("โปรดตรวจสอบจำนวนสินค้า", "แจ้งเตือน");
+                }
+            }
+        }
+
+        private void datacart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dtstock = false;
+            datacart.CurrentRow.Selected = true;
+            id.Text = datacart.Rows[e.RowIndex].Cells["ID"].FormattedValue.ToString();
+            product.Text = datacart.Rows[e.RowIndex].Cells["product"].FormattedValue.ToString();
+            priceproduct.Text = datacart.Rows[e.RowIndex].Cells["price"].FormattedValue.ToString();
+            comboamount.Text = datacart.Rows[e.RowIndex].Cells["amount"].FormattedValue.ToString();
         }
     }
 }

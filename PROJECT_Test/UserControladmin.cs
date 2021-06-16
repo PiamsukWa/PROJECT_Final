@@ -104,6 +104,11 @@ namespace PROJECT_Test
                 username.Enabled = false;
                 textBoxemail.Enabled = false;
                 btndelete.Enabled = false;
+                btndelete.Hide();
+                saveaccount.Hide();
+                newaccount.Hide();
+               
+
             }
             
         }
@@ -217,6 +222,9 @@ namespace PROJECT_Test
                 label9.ResetText();
                 ShowGridViewadmin();
             }
+            btnupdate.Enabled = true;
+            textBoxemail.Enabled = false; 
+            username.Enabled = false;
         }
 
         private void username_KeyPress(object sender, KeyPressEventArgs e)
@@ -298,7 +306,7 @@ namespace PROJECT_Test
             if (Program.status_login == "admin")
             {
                 ShowGridViewadmin();
-                username.ReadOnly = true;
+                username.ReadOnly = false;
                 textBoxemail.ReadOnly = false;
                 newaccount.Enabled = true;
                 saveaccount.Enabled = true;
