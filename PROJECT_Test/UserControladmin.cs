@@ -295,8 +295,7 @@ namespace PROJECT_Test
 
             MySqlConnection conn = databaseConnection();
             string sql = $"UPDATE admin SET `username` =\"{username.Text}\", `password` = \"{password.Text}\",  `fname` = \"{ fname.Text}\", `lname` = \"{lname.Text}\" WHERE `username` =\"{userold}\"";
-            //MessageBox.Show(sql);
-            //Console.WriteLine(sql);
+            
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             conn.Open();
@@ -318,7 +317,7 @@ namespace PROJECT_Test
                 textBoxemail.ReadOnly = true;
                 newaccount.Enabled = false;
                 saveaccount.Enabled = false;
-                ShowGridViewSale();
+                
             }
 
         }

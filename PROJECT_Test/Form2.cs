@@ -67,7 +67,7 @@ namespace PROJECT_Test
             }
         }
 
-        private void checkBoxpass_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxpass_CheckedChanged(object sender, EventArgs e) //แสดงรหัสผ่าน
         {
             if (checkBoxpass.Checked)
             {
@@ -99,6 +99,7 @@ namespace PROJECT_Test
             conn.Open();
             string user = textBoxusername.Text;
             string password = textBoxpass.Text;
+
             MySqlCommand cmd = new MySqlCommand($"SELECT * FROM admin WHERE username=\"{user}\" AND password=\"{password}\"",conn);
             bool checkhave = false; 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -145,7 +146,7 @@ namespace PROJECT_Test
             buttonlogin.Enabled = false;
         }
 
-        private void forgetpass_Click(object sender, EventArgs e)
+        private void forgetpass_Click(object sender, EventArgs e) //ไปยังหน้าลืมรหัสผ่าน
         {
             MySqlConnection conn = databaseConnection();
             conn.Open();

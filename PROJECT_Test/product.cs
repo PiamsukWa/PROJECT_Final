@@ -146,10 +146,10 @@ namespace PROJECT_Test
         private void delete_Click(object sender, EventArgs e)
         {
             int selectedRow = dataproduct.CurrentCell.RowIndex;
-            int deleteuser = Convert.ToInt32(dataproduct.Rows[selectedRow].Cells["ID"].Value);
+            int deletepro = Convert.ToInt32(dataproduct.Rows[selectedRow].Cells["ID"].Value);
 
             MySqlConnection conn = databaseConnection();
-            string sql = "DELETE FROM stockproduct WHERE ID = '" + deleteuser + "'";
+            string sql = "DELETE FROM stockproduct WHERE ID = '" + deletepro + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
 
             conn.Open();
@@ -308,7 +308,7 @@ namespace PROJECT_Test
             conn.Open();
             if(allstock == true)
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM stockproduct WHERE kind = '" + comboBox1.SelectedItem.ToString() + "'", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM stockproduct WHERE kind = '" + comboBox1.SelectedItem.ToString() + "' AND name like '%"+ searchbox.Text + "%'", conn);
                 MySqlDataReader adapter = cmd.ExecuteReader();
 
                 while (adapter.Read())

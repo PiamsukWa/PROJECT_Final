@@ -43,7 +43,7 @@ namespace PROJECT_Test
             datahistory.DataSource = ds.Tables[0].DefaultView;
         }
 
-        private void ShowdataproductAdmin()
+        private void ShowdataproductAdmin() 
         {
             MySqlConnection conn = databaseConnection();
 
